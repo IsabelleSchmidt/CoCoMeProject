@@ -1,0 +1,71 @@
+UC 1 - Process Sale (cash-desk-pc)
+
+Brief Description: At the Cash Desk the products a Customer wants to buy are
+detected and the payment - either by credit card or cash - is performed.
+Involved Actors: Customer, Cashier, Bank, Printer, Card Reader, Cash Box, Bar
+Code Scanner, Light Display
+
+
+UC 2 - Manage Express Checkout (cash-desk-pc)
+
+Brief Description: If some conditions are fulfilled a Cash Desk automatically
+switches into an express mode. The Cashier is able to switch back into normal
+mode by pressing a button at his Cash Desk. To indicate the mode the Light
+Display shows different colors.
+Involved Actors: Cashier, Cash Box, Light Display, Card Reader
+
+
+UC 3 - Order Products (store-server)
+
+Brief Description: The Trading System provide the opportunity to order product
+items.
+Involved Actors: Store Manager
+
+
+UC 4 - Receive Ordered Products (store-server)
+
+Brief Description: Ordered products which arrive at the Store have to be checked
+for correctness and inventoried.
+Involved Actors: Stock Manager
+
+
+UC 5 - Show Stock Reports (store-server)
+
+Brief Description: The opportunity to generate stock-related reports is provided
+by the Trading System.
+Involved Actors: Store Manager
+
+
+UC 6 - Show Delivery Reports (enterprise-server)
+
+Brief Description: The Trading System provides the opportunity to calculate the
+mean times a delivery from each supplier to an considered enterprise takes.
+Involved Actors: Enterprise Manager
+
+
+UC 7 - Change Price (store-server)
+
+Brief Description: The System provides the opportunity to change the sales price
+for a product.
+Involved Actors: Store Manager
+
+
+UC 8 - Product Exchange (on low stock) Among Stores (store/enterprise-server)
+
+Brief Description: If a store runs out of a certain product (or a set of products;
+“required good”), it is possible to start a query to check whether those products
+are available at other Stores of the Enterprise (“providing Stores”). Therefore
+the Enterprise Server and the Store Servers need to synchronize their data on
+demand (one scheduled update per day or per hour is not sufficient). After a
+successful query the critical product can be shipped from one to other Stores. But
+it has to be decided (using heuristics to compute the future selling frequency),
+whether the transportation is meaningful. For example, if the product is propably
+sold out at all Stores within the same day, a transportation does not make sense.
+Expressed in a more technical way one Store Server is able to start a query at
+the Enterprise Server. The Enterprise Server in turn starts a query for products
+available at other Stores. As the Enterprise Server does not have the current
+global data for Stores at any time (due to a write caching latency at the Store
+Servers) the Enterprise Server has to trigger all Store Servers to push their local
+data to the Enterprise Server.
+Involved Actors: This use case is not an end-user use case. Only servers are
+involved.
