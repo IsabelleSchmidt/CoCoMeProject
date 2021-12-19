@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PrvgT7PYuv0FJOUj4x6wLiIqdLpjiWRtP+pWsJ0K2ISYCw2Fo7icBOzMmYUOYHKZwmHDu4CC+vj4dN7ZJaHp2w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\EnterpriseServer\\EnterpriseServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lukas\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

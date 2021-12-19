@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "48f4047b-28b0-41cd-b752-b6b1784e4ee0": {
+      "ProjectGuid": "48f4047b-28b0-41cd-b752-b6b1784e4ee0",
+      "DisplayName": "StoreContracts",
+      "ColorIndex": 0
+    },
+    "b3ddbea3-6411-45e4-b2e2-cb7a352235e9": {
+      "ProjectGuid": "b3ddbea3-6411-45e4-b2e2-cb7a352235e9",
+      "DisplayName": "StoreImplementation",
+      "ColorIndex": 1
+    },
+    "c5176bb8-da6b-4aeb-b8f6-c1cab47bb4a0": {
+      "ProjectGuid": "c5176bb8-da6b-4aeb-b8f6-c1cab47bb4a0",
+      "DisplayName": "EnterpriseContracts",
+      "ColorIndex": 2
+    },
+    "3c1aebb7-64d3-48da-9787-58a50e99d38c": {
+      "ProjectGuid": "3c1aebb7-64d3-48da-9787-58a50e99d38c",
+      "DisplayName": "EnterpriseImplementation",
+      "ColorIndex": 3
+    },
+    "48cc0aad-f15c-4cf0-ae94-18bb9d0ca0b9": {
+      "ProjectGuid": "48cc0aad-f15c-4cf0-ae94-18bb9d0ca0b9",
+      "DisplayName": "EnterpriseServer",
+      "ColorIndex": 4
+    },
+    "8131ff86-f891-461e-baf4-6edc773f78f6": {
+      "ProjectGuid": "8131ff86-f891-461e-baf4-6edc773f78f6",
+      "DisplayName": "StoreServer",
+      "ColorIndex": 5
+    },
+    "3806a2d5-5061-4690-8a5b-70e6845c5da1": {
+      "ProjectGuid": "3806a2d5-5061-4690-8a5b-70e6845c5da1",
+      "DisplayName": "Entities",
+      "ColorIndex": 6
+    }
+  },
+  "NextColorIndex": 7
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "O01xpApByU22JewCXnwiMOsxTLZhBdC9Et1FdTNnj/3BbllaeHxkHJX+kTzIOcM57Hx9X7klsscqD4koAgfwXA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Implementation\\StoreImplementation.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lukas\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
