@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\EnterpriseImplementation\\EnterpriseImplementation.csproj": {}
+    "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseImplementation\\EnterpriseImplementation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\EnterpriseImplementation\\EnterpriseImplementation.csproj": {
+    "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseImplementation\\EnterpriseImplementation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\EnterpriseImplementation\\EnterpriseImplementation.csproj",
+        "projectUniqueName": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseImplementation\\EnterpriseImplementation.csproj",
         "projectName": "EnterpriseImplementation",
-        "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\EnterpriseImplementation\\EnterpriseImplementation.csproj",
-        "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\EnterpriseImplementation\\obj\\",
+        "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseImplementation\\EnterpriseImplementation.csproj",
+        "packagesPath": "C:\\Users\\isabe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseImplementation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\isabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

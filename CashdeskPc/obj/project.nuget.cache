@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ZuwwuYrwlIdg8CDQ46Tx8SJ52tPlOa/h2pcYiKYA6/6TqeGPcXf0VVmXVgD10rGe2O0x3J1zhA/5mlsQURFULg==",
+  "dgSpecHash": "SoHdrIBJofl/SmiSLgf1Bdok0E8ArAUS+tv/TPmtz6k1Bivix8PjKmBAHAfXjIDT+3UpNYHs0AHsu7yFkoQWtQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\CashdeskPc\\CashdeskPc.csproj",
+  "projectFilePath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\CashdeskPc\\CashdeskPc.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lukas\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512"
+    "C:\\Users\\isabe\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512"
   ],
   "logs": []
 }

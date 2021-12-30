@@ -36,19 +36,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lukas\\.nuget\\packages\\": {}
+    "C:\\Users\\isabe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\CashdeskPc\\CashdeskPc.csproj",
+      "projectUniqueName": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\CashdeskPc\\CashdeskPc.csproj",
       "projectName": "CashdeskPc",
-      "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\CashdeskPc\\CashdeskPc.csproj",
-      "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\CashdeskPc\\obj\\",
+      "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\CashdeskPc\\CashdeskPc.csproj",
+      "packagesPath": "C:\\Users\\isabe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\CashdeskPc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\isabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -97,7 +97,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "t/tLU2we2ckptsIRoJV8S/ZrDQALZw/HpbENmBZCuVf6Z8hDijiG8hq69ACOyj9He/9tHqYf5D34xvBlTVxJQQ==",
+  "dgSpecHash": "/vYPIhjvoZeSFOJ3H6jvtNuCO8hmQqB5wGioBzL1Y3bJ9iZTt+Ess5l3dmQBb0pazDM7URYvqn8LlWlbedsgvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Contracts\\StoreContracts.csproj",
+  "projectFilePath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Contracts\\StoreContracts.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lukas\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512"
+    "C:\\Users\\isabe\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512"
   ],
   "logs": []
 }
