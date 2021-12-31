@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Contracts\\StoreContracts.csproj": {}
+    "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Contracts\\StoreContracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Contracts\\StoreContracts.csproj": {
+    "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Contracts\\StoreContracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Contracts\\StoreContracts.csproj",
+        "projectUniqueName": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Contracts\\StoreContracts.csproj",
         "projectName": "StoreContracts",
-        "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Contracts\\StoreContracts.csproj",
-        "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Contracts\\obj\\",
+        "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Contracts\\StoreContracts.csproj",
+        "packagesPath": "C:\\Users\\isabe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\isabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\Entities.csproj"
+              "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj"
               }
             }
           }
@@ -64,21 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\Entities.csproj": {
+    "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\isabe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\isabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
