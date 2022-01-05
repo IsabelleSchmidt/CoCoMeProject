@@ -1,26 +1,55 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "Tecan.Sila2.Annotations/4.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Tecan.Sila2.Annotations.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Tecan.Sila2.Annotations.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Tecan.Sila2.Annotations/4.0.2": {
+      "sha512": "ksQt7bd0rLQrM0I7o7bCsgojcxPb2t9811t9DM9RKI8iyJzQ2pcuz+JixohOhhcHpLl8wHeJQW932byIdr2J2Q==",
+      "type": "package",
+      "path": "tecan.sila2.annotations/4.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Tecan.Sila2.Annotations.dll",
+        "lib/net6.0/Tecan.Sila2.Annotations.xml",
+        "lib/netstandard2.0/Tecan.Sila2.Annotations.dll",
+        "lib/netstandard2.0/Tecan.Sila2.Annotations.xml",
+        "tecan.sila2.annotations.4.0.2.nupkg.sha512",
+        "tecan.sila2.annotations.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "Tecan.Sila2.Annotations >= 4.0.2"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\isabe\\.nuget\\packages\\": {}
+    "C:\\Users\\lukas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj",
+      "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj",
-      "packagesPath": "C:\\Users\\isabe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\obj\\",
+      "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\Entities.csproj",
+      "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\Entities\\obj\\",
       "projectStyle": "PackageReference",
+      "crossTargeting": true,
       "configFilePaths": [
-        "C:\\Users\\isabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -45,6 +74,12 @@
     "frameworks": {
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
+        "dependencies": {
+          "Tecan.Sila2.Annotations": {
+            "target": "Package",
+            "version": "[4.0.2, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -60,7 +95,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

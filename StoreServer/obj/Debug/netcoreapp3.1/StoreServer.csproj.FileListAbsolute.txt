@@ -1,0 +1,17 @@
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\StoreServer.exe
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\StoreServer.deps.json
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\StoreServer.runtimeconfig.json
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\StoreServer.runtimeconfig.dev.json
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\StoreServer.dll
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\StoreServer.pdb
+C:\Users\lukas\source\repos\CocoMe\StoreServer\obj\Debug\netcoreapp3.1\StoreServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lukas\source\repos\CocoMe\StoreServer\obj\Debug\netcoreapp3.1\StoreServer.AssemblyInfoInputs.cache
+C:\Users\lukas\source\repos\CocoMe\StoreServer\obj\Debug\netcoreapp3.1\StoreServer.AssemblyInfo.cs
+C:\Users\lukas\source\repos\CocoMe\StoreServer\obj\Debug\netcoreapp3.1\StoreServer.csproj.CoreCompileInputs.cache
+C:\Users\lukas\source\repos\CocoMe\StoreServer\obj\Debug\netcoreapp3.1\StoreServer.dll
+C:\Users\lukas\source\repos\CocoMe\StoreServer\obj\Debug\netcoreapp3.1\StoreServer.pdb
+C:\Users\lukas\source\repos\CocoMe\StoreServer\obj\Debug\netcoreapp3.1\StoreServer.genruntimeconfig.cache
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\Tecan.Sila2.Annotations.dll
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\lukas\source\repos\CocoMe\StoreServer\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\lukas\source\repos\CocoMe\StoreServer\obj\Debug\netcoreapp3.1\StoreServer.csproj.CopyComplete

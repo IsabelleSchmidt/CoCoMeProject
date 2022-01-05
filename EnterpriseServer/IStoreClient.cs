@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Text;
 using Tecan.Sila2;
 
-namespace Program
+namespace EnterpriseServer
 {
-	[SilaFeature]
-	internal interface IStoreClient
-	{
+    [SilaFeature]
+    internal interface IStoreClient
+    {
 
-		List<Product> generateDeliveryReport(Guid enterpriseId);
+        Dictionary<Guid, int> generateDeliveryReport(Guid enterpriseId);
 
 
-	}
+    }
 }

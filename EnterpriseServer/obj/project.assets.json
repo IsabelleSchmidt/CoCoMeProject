@@ -10,6 +10,19 @@
         "runtime": {
           "lib/netstandard2.0/Tecan.Sila2.Annotations.dll": {}
         }
+      },
+      "Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Tecan.Sila2.Annotations": "4.0.2"
+        },
+        "compile": {
+          "bin/placeholder/Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entities.dll": {}
+        }
       }
     }
   },
@@ -28,27 +41,34 @@
         "tecan.sila2.annotations.4.0.2.nupkg.sha512",
         "tecan.sila2.annotations.nuspec"
       ]
+    },
+    "Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/Entities.csproj",
+      "msbuildProject": "../Entities/Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Entities >= 1.0.0",
       "Tecan.Sila2.Annotations >= 4.0.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\isabe\\.nuget\\packages\\": {}
+    "C:\\Users\\lukas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseServer\\EnterpriseServer.csproj",
+      "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CocoMe\\EnterpriseServer\\EnterpriseServer.csproj",
       "projectName": "EnterpriseServer",
-      "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseServer\\EnterpriseServer.csproj",
-      "packagesPath": "C:\\Users\\isabe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseServer\\obj\\",
+      "projectPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\EnterpriseServer\\EnterpriseServer.csproj",
+      "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\EnterpriseServer\\obj\\",
       "projectStyle": "PackageReference",
+      "crossTargeting": true,
       "configFilePaths": [
-        "C:\\Users\\isabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +81,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -94,7 +118,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

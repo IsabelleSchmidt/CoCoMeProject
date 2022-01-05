@@ -1,20 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj": {}
+    "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj": {
+    "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\isabe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "crossTargeting": true,
         "configFilePaths": [
-          "C:\\Users\\isabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +40,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Tecan.Sila2.Annotations": {
+              "target": "Package",
+              "version": "[4.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -54,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

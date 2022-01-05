@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StoreServer
+namespace CoCoMe.StoreServer
 {
     internal class Program
     {

@@ -35,7 +35,47 @@
       "ProjectGuid": "3806a2d5-5061-4690-8a5b-70e6845c5da1",
       "DisplayName": "Entities",
       "ColorIndex": 6
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "f51b9a05-49fe-4100-9e10-15c6d3544ce4": {
+      "ProjectGuid": "f51b9a05-49fe-4100-9e10-15c6d3544ce4",
+      "DisplayName": "CashDeskPc",
+      "ColorIndex": 7
+    },
+    "d3639da8-aca7-4fd0-85a2-50b383d1690e": {
+      "ProjectGuid": "d3639da8-aca7-4fd0-85a2-50b383d1690e",
+      "DisplayName": "StoreClient",
+      "ColorIndex": 8
+    },
+    "bf4e75f7-9677-4335-88b9-28a9a8d74200": {
+      "ProjectGuid": "bf4e75f7-9677-4335-88b9-28a9a8d74200",
+      "DisplayName": "StoreServer",
+      "ColorIndex": 9
+    },
+    "fb49bcbd-d8ae-46ae-9275-78d9e726a126": {
+      "ProjectGuid": "fb49bcbd-d8ae-46ae-9275-78d9e726a126",
+      "DisplayName": "EnterpriseServer",
+      "ColorIndex": 10
+    },
+    "665f06ec-4792-454f-9a14-360b34cd4a4e": {
+      "ProjectGuid": "665f06ec-4792-454f-9a14-360b34cd4a4e",
+      "DisplayName": "ContractsStore",
+      "ColorIndex": 11
+    },
+    "9437f59b-c744-491f-8573-cba8e5f6d3ec": {
+      "ProjectGuid": "9437f59b-c744-491f-8573-cba8e5f6d3ec",
+      "DisplayName": "ImplementationStore",
+      "ColorIndex": 12
+    },
+    "ff700cf7-0555-41ad-84fd-872691ee5b41": {
+      "ProjectGuid": "ff700cf7-0555-41ad-84fd-872691ee5b41",
+      "DisplayName": "StoreServer",
+      "ColorIndex": 13
     }
   },
-  "NextColorIndex": 7
+  "NextColorIndex": 14
 }

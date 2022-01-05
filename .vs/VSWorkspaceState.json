@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EnterpriseServer",
+    "\\Entities",
+    "\\StoreServer"
   ],
-  "SelectedNode": "\\CoCoME.sln",
+  "SelectedNode": "\\CoCoMe.sln",
   "PreviewInSolutionExplorer": false
 }

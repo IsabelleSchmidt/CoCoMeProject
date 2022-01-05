@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uew88v5ZYzaYVeGpGGAbDMvntg0ZkFgn9seEB0xl9h1jfW+zB91Iq2MO/s6Lrhz6Z0J7qLzsEV32vueRGiPPlw==",
+  "dgSpecHash": "88KJIlSW+DQZW7LnyVSQ+fJo2/lSdrKAagYFz+U500ps5/ypA9KCkRAguY9rn23kFLd8lmBNS5geXjRYJ+Hr3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\EnterpriseServer\\EnterpriseServer.csproj",
+  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\EnterpriseServer\\EnterpriseServer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\isabe\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512"
+    "C:\\Users\\lukas\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\entities\\1.0.0\\entities.1.0.0.nupkg.sha512"
   ],
   "logs": []
 }

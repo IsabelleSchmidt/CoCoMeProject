@@ -1,6 +1,6 @@
 using System;
 
-namespace CashdeskPc.Models
+namespace CashDeskPc.Models
 {
     public class ErrorViewModel
     {

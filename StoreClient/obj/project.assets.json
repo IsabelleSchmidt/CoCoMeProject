@@ -36,19 +36,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\isabe\\.nuget\\packages\\": {}
+    "C:\\Users\\lukas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\StoreClient\\StoreClient.csproj",
+      "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\StoreClient\\StoreClient.csproj",
       "projectName": "StoreClient",
-      "projectPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\StoreClient\\StoreClient.csproj",
-      "packagesPath": "C:\\Users\\isabe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\isabe\\Source\\Repos\\CocoMe\\StoreClient\\obj\\",
+      "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\StoreClient\\StoreClient.csproj",
+      "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\StoreClient\\obj\\",
       "projectStyle": "PackageReference",
+      "crossTargeting": true,
       "configFilePaths": [
-        "C:\\Users\\isabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -97,7 +98,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -4,14 +4,12 @@ using System.Collections.Generic;
 using System.Text;
 using Tecan.Sila2;
 
-namespace Program
+namespace EnterpriseServer
 {
-	[SilaFeature]
-	internal interface IStoreServer
-	{
+    [SilaFeature]
+    internal interface IStoreServer
+    {
+        void queryItem(List<Product> product, Guid storeId);
 
-		void queryItem(Item, Guid storeId);
-
-
-	}
+    }
 }
