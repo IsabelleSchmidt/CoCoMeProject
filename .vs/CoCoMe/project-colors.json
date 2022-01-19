@@ -1,81 +1,36 @@
 {
   "Version": 1,
   "ProjectMap": {
-    "48f4047b-28b0-41cd-b752-b6b1784e4ee0": {
-      "ProjectGuid": "48f4047b-28b0-41cd-b752-b6b1784e4ee0",
-      "DisplayName": "StoreContracts",
+    "6e7d4548-e550-488f-95b1-29772e45e04b": {
+      "ProjectGuid": "6e7d4548-e550-488f-95b1-29772e45e04b",
+      "DisplayName": "KassenSystem",
       "ColorIndex": 0
     },
-    "b3ddbea3-6411-45e4-b2e2-cb7a352235e9": {
-      "ProjectGuid": "b3ddbea3-6411-45e4-b2e2-cb7a352235e9",
-      "DisplayName": "StoreImplementation",
+    "a0762f94-1910-41f6-835b-092fedd70cae": {
+      "ProjectGuid": "a0762f94-1910-41f6-835b-092fedd70cae",
+      "DisplayName": "Terminal",
       "ColorIndex": 1
     },
-    "c5176bb8-da6b-4aeb-b8f6-c1cab47bb4a0": {
-      "ProjectGuid": "c5176bb8-da6b-4aeb-b8f6-c1cab47bb4a0",
-      "DisplayName": "EnterpriseContracts",
+    "3fda0735-5311-4458-b901-220cdecaa1ab": {
+      "ProjectGuid": "3fda0735-5311-4458-b901-220cdecaa1ab",
+      "DisplayName": "TestConsole",
       "ColorIndex": 2
     },
-    "3c1aebb7-64d3-48da-9787-58a50e99d38c": {
-      "ProjectGuid": "3c1aebb7-64d3-48da-9787-58a50e99d38c",
-      "DisplayName": "EnterpriseImplementation",
+    "4d55daec-e0c5-4ae4-973f-3b942236c35f": {
+      "ProjectGuid": "4d55daec-e0c5-4ae4-973f-3b942236c35f",
+      "DisplayName": "BankServer",
       "ColorIndex": 3
     },
-    "48cc0aad-f15c-4cf0-ae94-18bb9d0ca0b9": {
-      "ProjectGuid": "48cc0aad-f15c-4cf0-ae94-18bb9d0ca0b9",
-      "DisplayName": "EnterpriseServer",
+    "aeadab01-1c2e-459b-a05c-b9b322cb9fe8": {
+      "ProjectGuid": "aeadab01-1c2e-459b-a05c-b9b322cb9fe8",
+      "DisplayName": "StoreServer",
       "ColorIndex": 4
     },
-    "8131ff86-f891-461e-baf4-6edc773f78f6": {
-      "ProjectGuid": "8131ff86-f891-461e-baf4-6edc773f78f6",
-      "DisplayName": "StoreServer",
-      "ColorIndex": 5
-    },
-    "3806a2d5-5061-4690-8a5b-70e6845c5da1": {
-      "ProjectGuid": "3806a2d5-5061-4690-8a5b-70e6845c5da1",
-      "DisplayName": "Entities",
-      "ColorIndex": 6
-    },
-    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
-      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
-      "DisplayName": "Miscellaneous Files",
-      "ColorIndex": -1
-    },
-    "f51b9a05-49fe-4100-9e10-15c6d3544ce4": {
-      "ProjectGuid": "f51b9a05-49fe-4100-9e10-15c6d3544ce4",
-      "DisplayName": "CashDeskPc",
-      "ColorIndex": 7
-    },
-    "d3639da8-aca7-4fd0-85a2-50b383d1690e": {
-      "ProjectGuid": "d3639da8-aca7-4fd0-85a2-50b383d1690e",
-      "DisplayName": "StoreClient",
-      "ColorIndex": 8
-    },
-    "bf4e75f7-9677-4335-88b9-28a9a8d74200": {
-      "ProjectGuid": "bf4e75f7-9677-4335-88b9-28a9a8d74200",
-      "DisplayName": "StoreServer",
-      "ColorIndex": 9
-    },
-    "fb49bcbd-d8ae-46ae-9275-78d9e726a126": {
-      "ProjectGuid": "fb49bcbd-d8ae-46ae-9275-78d9e726a126",
+    "8e0bda54-b8c3-4fff-a9d8-a4c516cc37ae": {
+      "ProjectGuid": "8e0bda54-b8c3-4fff-a9d8-a4c516cc37ae",
       "DisplayName": "EnterpriseServer",
-      "ColorIndex": 10
-    },
-    "665f06ec-4792-454f-9a14-360b34cd4a4e": {
-      "ProjectGuid": "665f06ec-4792-454f-9a14-360b34cd4a4e",
-      "DisplayName": "ContractsStore",
-      "ColorIndex": 11
-    },
-    "9437f59b-c744-491f-8573-cba8e5f6d3ec": {
-      "ProjectGuid": "9437f59b-c744-491f-8573-cba8e5f6d3ec",
-      "DisplayName": "ImplementationStore",
-      "ColorIndex": 12
-    },
-    "ff700cf7-0555-41ad-84fd-872691ee5b41": {
-      "ProjectGuid": "ff700cf7-0555-41ad-84fd-872691ee5b41",
-      "DisplayName": "StoreServer",
-      "ColorIndex": 13
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 14
+  "NextColorIndex": 6
 }

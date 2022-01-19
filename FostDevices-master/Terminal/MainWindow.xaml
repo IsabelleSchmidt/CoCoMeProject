@@ -1,0 +1,50 @@
+﻿<Window x:Class="CoCoME.Terminal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoCoME.Terminal.ViewModels"
+        mc:Ignorable="d"
+        Title="Cashdesk Terminal" Height="313" Width="541" >
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <GroupBox Header="Display" DockPanel.Dock="Top">
+            <TextBlock Background="Black" Foreground="White" Text="{Binding Display.Display}" />
+        </GroupBox>
+        <GroupBox Header="Card Reader" DockPanel.Dock="Right">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="{Binding CardReader.Display}" />
+                <Button Command="{Binding CardReader.AuthorizeCommand}" CommandParameter="1234 5678">Card 1</Button>
+                <Button Command="{Binding CardReader.AuthorizeCommand}" CommandParameter="2345 6789">Card 2</Button>
+                <Button Command="{Binding CardReader.CancelCommand}">Cancel</Button>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Barcode Reader">
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <Button Command="{Binding BarcodeScanner.ScanCommand}" DockPanel.Dock="Right">Scan</Button>
+                    <TextBox Text="{Binding BarcodeScanner.Barcode}" />
+                </DockPanel>
+                <WrapPanel>
+                    <WrapPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Width" Value="100" />
+                            <Setter Property="Height" Value="50" />
+                            <Setter Property="Margin" Value="5" />
+                        </Style>
+                    </WrapPanel.Resources>
+                    <Button Command="{Binding BarcodeScanner.ScanCommand}" CommandParameter="Chocolate">Chocolate</Button>
+                    <Button Command="{Binding BarcodeScanner.ScanCommand}" CommandParameter="Cookies">Cookies</Button>
+                    <Button Command="{Binding BarcodeScanner.ScanCommand}" CommandParameter="Chips">Chips</Button>
+                </WrapPanel>
+            </DockPanel>
+        </GroupBox>
+    </DockPanel>
+</Window>

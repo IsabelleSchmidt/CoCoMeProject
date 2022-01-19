@@ -1,19 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukas\\source\\repos\\CocoMe\\StoreServer\\StoreServer.csproj": {}
+    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\StoreServer\\StoreServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj": {
+    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\StoreServer\\StoreServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj",
-        "projectName": "Entities",
-        "projectPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\StoreServer\\StoreServer.csproj",
+        "projectName": "StoreServer",
+        "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\StoreServer\\StoreServer.csproj",
         "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\StoreServer\\obj\\",
         "projectStyle": "PackageReference",
-        "crossTargeting": true,
         "configFilePaths": [
           "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -41,9 +40,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "Tecan.Sila2.Annotations": {
+            "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[4.0.2, )"
+              "version": "[2.42.0, )"
             }
           },
           "imports": [
@@ -57,64 +56,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\lukas\\source\\repos\\CocoMe\\StoreServer\\StoreServer.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CocoMe\\StoreServer\\StoreServer.csproj",
-        "projectName": "StoreServer",
-        "projectPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\StoreServer\\StoreServer.csproj",
-        "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\StoreServer\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\Entities\\Entities.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

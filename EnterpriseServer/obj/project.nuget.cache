@@ -1,11 +1,31 @@
 {
   "version": 2,
-  "dgSpecHash": "88KJIlSW+DQZW7LnyVSQ+fJo2/lSdrKAagYFz+U500ps5/ypA9KCkRAguY9rn23kFLd8lmBNS5geXjRYJ+Hr3w==",
+  "dgSpecHash": "TihjvN2NNCeNkQYIOltU4ha73nRuNANTs5JFcbQRSC2NYTGn5cczfBWE0xqylSLeqxZTPghXkFES1FgKta+N6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CocoMe\\EnterpriseServer\\EnterpriseServer.csproj",
+  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\EnterpriseServer\\EnterpriseServer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lukas\\.nuget\\packages\\tecan.sila2.annotations\\4.0.2\\tecan.sila2.annotations.4.0.2.nupkg.sha512",
-    "C:\\Users\\lukas\\.nuget\\packages\\entities\\1.0.0\\entities.1.0.0.nupkg.sha512"
+    "C:\\Users\\lukas\\.nuget\\packages\\google.protobuf\\3.18.1\\google.protobuf.3.18.1.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\grpc.aspnetcore\\2.42.0\\grpc.aspnetcore.2.42.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\grpc.aspnetcore.server\\2.42.0\\grpc.aspnetcore.server.2.42.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\grpc.aspnetcore.server.clientfactory\\2.42.0\\grpc.aspnetcore.server.clientfactory.2.42.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\grpc.core.api\\2.42.0\\grpc.core.api.2.42.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\grpc.net.client\\2.42.0\\grpc.net.client.2.42.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\grpc.net.clientfactory\\2.42.0\\grpc.net.clientfactory.2.42.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\grpc.net.common\\2.42.0\\grpc.net.common.2.42.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\grpc.tools\\2.42.0\\grpc.tools.2.42.0.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.configuration\\3.0.3\\microsoft.extensions.configuration.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.0.3\\microsoft.extensions.configuration.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.0.3\\microsoft.extensions.configuration.binder.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.0.3\\microsoft.extensions.dependencyinjection.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.3\\microsoft.extensions.dependencyinjection.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.http\\3.0.3\\microsoft.extensions.http.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.logging\\3.0.3\\microsoft.extensions.logging.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.3\\microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.options\\3.0.3\\microsoft.extensions.options.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.3\\microsoft.extensions.primitives.3.0.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.5.1\\system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
   ],
   "logs": []
 }

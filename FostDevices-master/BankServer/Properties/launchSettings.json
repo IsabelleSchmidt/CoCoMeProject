@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BankServer": {
+      "commandName": "Project",
+      "commandLineArgs": "-p 50053 -i 127.0.0.1"
+    }
+  }
+}

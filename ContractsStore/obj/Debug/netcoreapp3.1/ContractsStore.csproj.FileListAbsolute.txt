@@ -1,9 +1,0 @@
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\bin\Debug\netcoreapp3.1\ContractsStore.deps.json
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\bin\Debug\netcoreapp3.1\ContractsStore.dll
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\bin\Debug\netcoreapp3.1\ContractsStore.pdb
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\obj\Debug\netcoreapp3.1\ContractsStore.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\obj\Debug\netcoreapp3.1\ContractsStore.AssemblyInfoInputs.cache
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\obj\Debug\netcoreapp3.1\ContractsStore.AssemblyInfo.cs
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\obj\Debug\netcoreapp3.1\ContractsStore.csproj.CoreCompileInputs.cache
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\obj\Debug\netcoreapp3.1\ContractsStore.dll
-C:\Users\lukas\source\repos\CocoMe\ContractsStore\obj\Debug\netcoreapp3.1\ContractsStore.pdb

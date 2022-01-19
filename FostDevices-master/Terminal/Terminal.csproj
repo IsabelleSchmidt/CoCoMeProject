@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="BarcodeScannerService.sila.xml" />
+    <None Remove="CardReaderService.sila.xml" />
+    <None Remove="DisplayController.sila.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="BarcodeScannerService.sila.xml" />
+    <EmbeddedResource Include="CardReaderService.sila.xml" />
+    <EmbeddedResource Include="DisplayController.sila.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+    <PackageReference Include="Tecan.Sila2.Server" Version="4.0.2" />
+  </ItemGroup>
+</Project>
