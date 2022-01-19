@@ -1,6 +1,6 @@
 using System;
 
-namespace CoCoMeSingleProject.Models
+namespace KassenSystem.Models
 {
     public class ErrorViewModel
     {

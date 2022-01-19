@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SREo/jaDS3kwCBoCHHXPTYzdq/0N0MJ++wvihcLNa/83G1XMuO2IQHiRX2W0HFkGLmYD/fNdZ69QiYaKyMv9rw==",
+  "dgSpecHash": "sr1hToLnqKQD91kgT8POXPk1Nwhti9Wbqq8QE0U8uSrYJqEJplsuPMIBR6Eb/H/MOnDz+QRDULYPXXQvUussyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\CoCoMeSingleProject\\KassenSystem.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\lukas\\.nuget\\packages\\grpc.tools\\2.43.0\\grpc.tools.2.43.0.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\KassenSystem\\KassenSystem.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
