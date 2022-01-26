@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "sr1hToLnqKQD91kgT8POXPk1Nwhti9Wbqq8QE0U8uSrYJqEJplsuPMIBR6Eb/H/MOnDz+QRDULYPXXQvUussyA==",
+  "dgSpecHash": "AkTigEpTOm65HNuLpIzr7IbGqGcWyBumjKYr5im1oADuEsa1nOnYkGm2vdaqT9edgKkWVeIBD5cRORaPc7D6Tg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\KassenSystem\\KassenSystem.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Uni\\Semester7\\CoCoMe\\KassenSystem\\KassenSystem.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\post\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
+    "C:\\Users\\post\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\post\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\post\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

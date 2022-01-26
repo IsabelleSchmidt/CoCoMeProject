@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\KassenSystem\\KassenSystem.csproj": {}
+    "D:\\Uni\\Semester7\\CoCoMe\\KassenSystem\\KassenSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lukas\\source\\repos\\CoCoMe\\KassenSystem\\KassenSystem.csproj": {
+    "D:\\Uni\\Semester7\\CoCoMe\\KassenSystem\\KassenSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\KassenSystem\\KassenSystem.csproj",
+        "projectUniqueName": "D:\\Uni\\Semester7\\CoCoMe\\KassenSystem\\KassenSystem.csproj",
         "projectName": "KassenSystem",
-        "projectPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\KassenSystem\\KassenSystem.csproj",
-        "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukas\\source\\repos\\CoCoMe\\KassenSystem\\obj\\",
+        "projectPath": "D:\\Uni\\Semester7\\CoCoMe\\KassenSystem\\KassenSystem.csproj",
+        "packagesPath": "C:\\Users\\post\\.nuget\\packages\\",
+        "outputPath": "D:\\Uni\\Semester7\\CoCoMe\\KassenSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\post\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,6 +49,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.22, 3.1.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
