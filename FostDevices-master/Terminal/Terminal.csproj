@@ -9,17 +9,22 @@
   <ItemGroup>
     <None Remove="BarcodeScannerService.sila.xml" />
     <None Remove="CardReaderService.sila.xml" />
+    <None Remove="CashboxService.sila.xml" />
     <None Remove="DisplayController.sila.xml" />
+    <None Remove="PrintingService.sila.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="BarcodeScannerService.sila.xml" />
     <EmbeddedResource Include="CardReaderService.sila.xml" />
+    <EmbeddedResource Include="CashboxService.sila.xml" />
     <EmbeddedResource Include="DisplayController.sila.xml" />
+    <EmbeddedResource Include="PrintingService.sila.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Reactive" Version="5.0.0" />
     <PackageReference Include="Tecan.Sila2.Server" Version="4.0.2" />
   </ItemGroup>
+
 </Project>

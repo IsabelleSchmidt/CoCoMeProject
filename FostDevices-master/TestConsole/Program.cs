@@ -9,7 +9,9 @@ using TestConsole;
 using TestConsole.BankServer;
 using TestConsole.BarcodeScannerService;
 using TestConsole.CardReaderService;
+using TestConsole.CashboxService;
 using TestConsole.DisplayController;
+using TestConsole.PrintingService;
 
 var connector = new ServerConnector(new DiscoveryExecutionManager());
 var discovery = new ServerDiscovery(connector);
@@ -22,15 +24,29 @@ var bankServer = servers.FirstOrDefault(s => s.Info.Type == "BankServer");
 
 var terminalServerExecutionManager = executionManagerFactory.CreateExecutionManager(terminalServer);
 
+// demo of cashbox and display
+var cashboxClient = new CashboxServiceClient(terminalServer.Channel, terminalServerExecutionManager);
 var displayClient = new DisplayControllerClient(terminalServer.Channel, terminalServerExecutionManager);
+var cashboxButtons = cashboxClient.ListenToCashdeskButtons();
+Console.WriteLine("Reading cashbox buttons");
+Console.WriteLine("Press some of the cashbox buttons and see how the display adjust. Press Enter to continue");
+var listenToCashBoxButtons = cashboxClient.ListenToCashdeskButtons();
+DisplayButtonsPressed(displayClient, listenToCashBoxButtons);
+Console.ReadLine();
+listenToCashBoxButtons.Cancel();
+
+// demo of printer and barcode reader
+var printerClient = new PrintingServiceClient(terminalServer.Channel, terminalServerExecutionManager);
 var barcodeClient = new BarcodeScannerServiceClient(terminalServer.Channel, terminalServerExecutionManager);
-
 var readBarcodes = barcodeClient.ListenToBarcodes();
-
 Console.WriteLine("Scanning barcodes");
-PrintNumberOfArticlesScanned(displayClient, readBarcodes);
+Console.WriteLine("Select some items in the terminal application and see the printer adjusting, press Enter to continue");
+PrintNumberOfArticlesScanned(printerClient, readBarcodes);
 Console.ReadLine();
 readBarcodes.Cancel();
+
+// demo of bank transactions
+Console.WriteLine("The following is an example of a bank transaction");
 var cardReader = new CardReaderServiceClient(terminalServer.Channel, terminalServerExecutionManager);
 var bankInterface = new BankServerClient(bankServer.Channel, executionManagerFactory.CreateExecutionManager(bankServer));
 
@@ -47,7 +63,18 @@ catch (Exception ex)
     cardReader.Abort(ex.Message);
 }
 
-static async void PrintNumberOfArticlesScanned(IDisplayController displayController, IIntermediateObservableCommand<string> barcodes)
+static async void DisplayButtonsPressed(IDisplayController display, IIntermediateObservableCommand<CashboxButton> cashboxButtons)
+{
+    while (await cashboxButtons.IntermediateValues.WaitToReadAsync())
+    {
+        if (cashboxButtons.IntermediateValues.TryRead(out var button))
+        {
+            display.SetDisplayText($"{button} pressed");
+        }
+    }
+}
+
+static async void PrintNumberOfArticlesScanned(IPrintingService printer, IIntermediateObservableCommand<string> barcodes)
 {
     var itemsScanned = 0;
     while (await barcodes.IntermediateValues.WaitToReadAsync())
@@ -55,8 +82,8 @@ static async void PrintNumberOfArticlesScanned(IDisplayController displayControl
         if (barcodes.IntermediateValues.TryRead(out var barcode))
         {
             itemsScanned++;
-            Console.WriteLine(barcode);
-            displayController.SetDisplayText($"Scanned {barcode} ({itemsScanned} items total)");
+            printer.PrintLine(barcode);
+            Console.WriteLine($"Scanned {barcode} ({itemsScanned} items total)");
         }
     }
 }

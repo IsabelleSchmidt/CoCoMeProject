@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tecan.Sila2;
 
-namespace Terminal
+namespace CoCoME.Terminal
 {
     /// <summary>
     /// Represents a SiLA2 observable command based on an observable

@@ -14,23 +14,23 @@ using Tecan.Sila2;
 using Tecan.Sila2.Client;
 using Tecan.Sila2.Server;
 
-namespace CoCoME.Terminal.BarcodeScannerService
+namespace CoCoME.Terminal.CashboxService
 {
     
     
     ///  <summary>
-    /// A class that exposes the IBarcodeScannerService interface via SiLA2
+    /// A class that exposes the ICashboxService interface via SiLA2
     /// </summary>
     [System.ComponentModel.Composition.ExportAttribute(typeof(IFeatureProvider))]
     [System.ComponentModel.Composition.PartCreationPolicyAttribute(System.ComponentModel.Composition.CreationPolicy.Shared)]
-    public partial class BarcodeScannerServiceProvider : IFeatureProvider
+    public partial class CashboxServiceProvider : IFeatureProvider
     {
         
-        private IBarcodeScannerService _implementation;
+        private ICashboxService _implementation;
         
         private Tecan.Sila2.Server.ISiLAServer _server;
         
-        private static Tecan.Sila2.Feature _feature = FeatureSerializer.LoadFromAssembly(typeof(BarcodeScannerServiceProvider).Assembly, "BarcodeScannerService.sila.xml");
+        private static Tecan.Sila2.Feature _feature = FeatureSerializer.LoadFromAssembly(typeof(CashboxServiceProvider).Assembly, "CashboxService.sila.xml");
         
         ///  <summary>
         /// Creates a new instance
@@ -38,7 +38,7 @@ namespace CoCoME.Terminal.BarcodeScannerService
         /// <param name="implementation">The implementation to exported through SiLA2</param>
         /// <param name="server">The SiLA2 server instance through which the implementation shall be exported</param>
         [System.ComponentModel.Composition.ImportingConstructorAttribute()]
-        public BarcodeScannerServiceProvider(IBarcodeScannerService implementation, Tecan.Sila2.Server.ISiLAServer server)
+        public CashboxServiceProvider(ICashboxService implementation, Tecan.Sila2.Server.ISiLAServer server)
         {
             _implementation = implementation;
             _server = server;
@@ -62,22 +62,22 @@ namespace CoCoME.Terminal.BarcodeScannerService
         /// <param name="registration">The registration component to which the feature should be registered</param>
         public void Register(IServerBuilder registration)
         {
-            registration.RegisterCommandWithIntermediates<ListenToBarcodesRequestDto, string, ListenToBarcodesIntermediateDto>("ListenToBarcodes", ListenToBarcodes, ConvertListenToBarcodesIntermediate, null);
+            registration.RegisterCommandWithIntermediates<ListenToCashdeskButtonsRequestDto, CashboxButton, ListenToCashdeskButtonsIntermediateDto>("ListenToCashdeskButtons", ListenToCashdeskButtons, ConvertListenToCashdeskButtonsIntermediate, null);
         }
         
-        private ListenToBarcodesIntermediateDto ConvertListenToBarcodesIntermediate(string intermediate)
+        private ListenToCashdeskButtonsIntermediateDto ConvertListenToCashdeskButtonsIntermediate(CashboxButton intermediate)
         {
-            return new ListenToBarcodesIntermediateDto(intermediate, _server);
+            return new ListenToCashdeskButtonsIntermediateDto(intermediate, _server);
         }
         
         ///  <summary>
-        /// Executes the Listen To Barcodes command
+        /// Executes the Listen To Cashdesk Buttons command
         /// </summary>
         /// <param name="request">A data transfer object that contains the command parameters</param>
         /// <returns>The command response wrapped in a data transfer object</returns>
-        protected virtual Tecan.Sila2.IIntermediateObservableCommand<string> ListenToBarcodes(ListenToBarcodesRequestDto request)
+        protected virtual Tecan.Sila2.IIntermediateObservableCommand<CashboxButton> ListenToCashdeskButtons(ListenToCashdeskButtonsRequestDto request)
         {
-            return new FixedObservableRxCommand<string>(_implementation.ListenToBarcodes());
+            return new FixedObservableRxCommand<CoCoME.Terminal.Contracts.CashboxButton>(_implementation.ListenToCashdeskButtons());
         }
         
         ///  <summary>
@@ -87,9 +87,9 @@ namespace CoCoME.Terminal.BarcodeScannerService
         /// <returns>A method object or null, if the command is not supported</returns>
         public System.Reflection.MethodInfo GetCommand(string commandIdentifier)
         {
-            if ((commandIdentifier == "cocome.terminal/contracts/BarcodeScannerService/v1/Command/ListenToBarcodes"))
+            if ((commandIdentifier == "cocome.terminal/contracts/CashboxService/v1/Command/ListenToCashdeskButtons"))
             {
-                return typeof(IBarcodeScannerService).GetMethod("ListenToBarcodes");
+                return typeof(ICashboxService).GetMethod("ListenToCashdeskButtons");
             }
             return null;
         }

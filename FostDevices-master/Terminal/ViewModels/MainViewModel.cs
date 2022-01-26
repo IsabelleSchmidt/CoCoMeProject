@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoCoME.Terminal.ViewModels.Contracts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -16,14 +17,20 @@ namespace CoCoME.Terminal.ViewModels
 
         public IBarcodeScannerViewModel BarcodeScanner { get; }
 
+        public IPrinterViewModel Printer { get; }
+
+        public ICashboxViewModel Cashbox { get; }
+
         public MainViewModel() { }
 
         [ImportingConstructor]
-        public MainViewModel(IDisplayViewModel display, ICardReaderViewModel cardReader, IBarcodeScannerViewModel barcodeScanner)
+        public MainViewModel(IDisplayViewModel display, ICardReaderViewModel cardReader, IBarcodeScannerViewModel barcodeScanner, IPrinterViewModel printer, ICashboxViewModel cashbox)
         {
             Display = display;
             CardReader = cardReader;
             BarcodeScanner = barcodeScanner;
+            Printer = printer;
+            Cashbox = cashbox;
         }
     }
 }

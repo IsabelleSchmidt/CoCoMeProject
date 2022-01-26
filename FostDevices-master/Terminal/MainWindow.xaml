@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoCoME.Terminal.ViewModels"
         mc:Ignorable="d"
-        Title="Cashdesk Terminal" Height="313" Width="541" >
+        Title="Cashdesk Terminal" Height="313" Width="640" >
     <Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>
@@ -15,6 +15,26 @@
         </Style>
     </Window.Resources>
     <DockPanel>
+        <GroupBox Header="Printer" DockPanel.Dock="Right" Width="100">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <TextBlock Text="{Binding Printer.Print}" />
+            </ScrollViewer>
+        </GroupBox>
+        <GroupBox Header="Cashbox" DockPanel.Dock="Left">
+            <StackPanel Orientation="Vertical">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Height" Value="30" />
+                        <Setter Property="Margin" Value="5" />
+                    </Style>
+                </StackPanel.Resources>
+                <Button Command="{Binding Cashbox.PressButtonCommand}" CommandParameter="StartNewSale">Start New Sale</Button>
+                <Button Command="{Binding Cashbox.PressButtonCommand}" CommandParameter="FinishSale">Finish Sale</Button>
+                <Button Command="{Binding Cashbox.PressButtonCommand}" CommandParameter="PayWithCash">Pay With Cash</Button>
+                <Button Command="{Binding Cashbox.PressButtonCommand}" CommandParameter="PayWithCard">Pay With Card</Button>
+                <Button Command="{Binding Cashbox.PressButtonCommand}" CommandParameter="DisableExpressMode">Disable Express</Button>
+            </StackPanel>
+        </GroupBox>
         <GroupBox Header="Display" DockPanel.Dock="Top">
             <TextBlock Background="Black" Foreground="White" Text="{Binding Display.Display}" />
         </GroupBox>

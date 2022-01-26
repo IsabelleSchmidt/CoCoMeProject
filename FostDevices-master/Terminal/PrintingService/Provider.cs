@@ -8,29 +8,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using CoCoME.Terminal.Contracts;
 using System.Linq;
 using Tecan.Sila2;
 using Tecan.Sila2.Client;
 using Tecan.Sila2.Server;
+using Terminal.Contracts;
 
-namespace CoCoME.Terminal.BarcodeScannerService
+namespace CoCoME.Terminal.PrintingService
 {
     
     
     ///  <summary>
-    /// A class that exposes the IBarcodeScannerService interface via SiLA2
+    /// A class that exposes the IPrintingService interface via SiLA2
     /// </summary>
     [System.ComponentModel.Composition.ExportAttribute(typeof(IFeatureProvider))]
     [System.ComponentModel.Composition.PartCreationPolicyAttribute(System.ComponentModel.Composition.CreationPolicy.Shared)]
-    public partial class BarcodeScannerServiceProvider : IFeatureProvider
+    public partial class PrintingServiceProvider : IFeatureProvider
     {
         
-        private IBarcodeScannerService _implementation;
+        private IPrintingService _implementation;
         
         private Tecan.Sila2.Server.ISiLAServer _server;
         
-        private static Tecan.Sila2.Feature _feature = FeatureSerializer.LoadFromAssembly(typeof(BarcodeScannerServiceProvider).Assembly, "BarcodeScannerService.sila.xml");
+        private static Tecan.Sila2.Feature _feature = FeatureSerializer.LoadFromAssembly(typeof(PrintingServiceProvider).Assembly, "PrintingService.sila.xml");
         
         ///  <summary>
         /// Creates a new instance
@@ -38,7 +38,7 @@ namespace CoCoME.Terminal.BarcodeScannerService
         /// <param name="implementation">The implementation to exported through SiLA2</param>
         /// <param name="server">The SiLA2 server instance through which the implementation shall be exported</param>
         [System.ComponentModel.Composition.ImportingConstructorAttribute()]
-        public BarcodeScannerServiceProvider(IBarcodeScannerService implementation, Tecan.Sila2.Server.ISiLAServer server)
+        public PrintingServiceProvider(IPrintingService implementation, Tecan.Sila2.Server.ISiLAServer server)
         {
             _implementation = implementation;
             _server = server;
@@ -62,22 +62,40 @@ namespace CoCoME.Terminal.BarcodeScannerService
         /// <param name="registration">The registration component to which the feature should be registered</param>
         public void Register(IServerBuilder registration)
         {
-            registration.RegisterCommandWithIntermediates<ListenToBarcodesRequestDto, string, ListenToBarcodesIntermediateDto>("ListenToBarcodes", ListenToBarcodes, ConvertListenToBarcodesIntermediate, null);
-        }
-        
-        private ListenToBarcodesIntermediateDto ConvertListenToBarcodesIntermediate(string intermediate)
-        {
-            return new ListenToBarcodesIntermediateDto(intermediate, _server);
+            registration.RegisterUnobservableCommand<PrintLineRequestDto, EmptyRequest>("PrintLine", PrintLine);
+            registration.RegisterUnobservableCommand<StartNextRequestDto, EmptyRequest>("StartNext", StartNext);
         }
         
         ///  <summary>
-        /// Executes the Listen To Barcodes command
+        /// Executes the Print Line command
         /// </summary>
         /// <param name="request">A data transfer object that contains the command parameters</param>
         /// <returns>The command response wrapped in a data transfer object</returns>
-        protected virtual Tecan.Sila2.IIntermediateObservableCommand<string> ListenToBarcodes(ListenToBarcodesRequestDto request)
+        protected virtual EmptyRequest PrintLine(PrintLineRequestDto request)
         {
-            return new FixedObservableRxCommand<string>(_implementation.ListenToBarcodes());
+            try
+            {
+                _implementation.PrintLine(request.Line.Extract(_server));
+                return EmptyRequest.Instance;
+            } catch (System.ArgumentException ex)
+            {
+                if ((ex.ParamName == "line"))
+                {
+                    throw _server.ErrorHandling.CreateValidationError("terminal/contracts/PrintingService/v1/Command/PrintLine/Parameter/Line", ex.Message);
+                }
+                throw _server.ErrorHandling.CreateUnknownValidationError(ex);
+            }
+        }
+        
+        ///  <summary>
+        /// Executes the Start Next command
+        /// </summary>
+        /// <param name="request">A data transfer object that contains the command parameters</param>
+        /// <returns>The command response wrapped in a data transfer object</returns>
+        protected virtual EmptyRequest StartNext(StartNextRequestDto request)
+        {
+            _implementation.StartNext();
+            return EmptyRequest.Instance;
         }
         
         ///  <summary>
@@ -87,9 +105,13 @@ namespace CoCoME.Terminal.BarcodeScannerService
         /// <returns>A method object or null, if the command is not supported</returns>
         public System.Reflection.MethodInfo GetCommand(string commandIdentifier)
         {
-            if ((commandIdentifier == "cocome.terminal/contracts/BarcodeScannerService/v1/Command/ListenToBarcodes"))
+            if ((commandIdentifier == "terminal/contracts/PrintingService/v1/Command/PrintLine"))
             {
-                return typeof(IBarcodeScannerService).GetMethod("ListenToBarcodes");
+                return typeof(IPrintingService).GetMethod("PrintLine");
+            }
+            if ((commandIdentifier == "terminal/contracts/PrintingService/v1/Command/StartNext"))
+            {
+                return typeof(IPrintingService).GetMethod("StartNext");
             }
             return null;
         }
