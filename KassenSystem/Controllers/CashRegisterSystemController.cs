@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace KassenSystem.Controllers
 {
-    public class HomeController : Controller
+    public class CashRegisterSystemController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<CashRegisterSystemController> _logger;
+        private CustomerDisplayController customerDisplay;
 
-        public HomeController(ILogger<HomeController> logger)
+        public CashRegisterSystemController(ILogger<CashRegisterSystemController> logger)
         {
             _logger = logger;
         }
@@ -23,9 +24,25 @@ namespace KassenSystem.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult CashDisplay()
         {
             return View();
+        }
+        public IActionResult ChoosepaymentMethod()
+        {
+            return View();
+        }
+
+        public IActionResult PayCash()
+        {
+            //open Cash Register
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult PayCard()
+        {
+            //activate Card Reader
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
