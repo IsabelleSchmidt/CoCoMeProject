@@ -21,6 +21,7 @@ namespace KassenSystem.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("index");
             return View();
         }
 
@@ -28,6 +29,24 @@ namespace KassenSystem.Controllers
         {
             return View();
         }
+
+        
+        public void DeleteCurrentItem()
+        {
+            //letztes Element der gescannten Items löschen
+        }
+
+        public void CurrentItemPlusOne()
+        {
+            //letztes Element der gescannten Items Anzahl + 1
+        }
+
+        public void StopExpressCheckout()
+        {
+            //Express-Modus der Kasse beenden
+            _logger.LogInformation("stop express");
+        }
+
         public IActionResult ChoosepaymentMethod()
         {
             return View();
