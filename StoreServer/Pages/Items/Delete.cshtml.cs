@@ -50,7 +50,16 @@ namespace StoreServer.Pages.Items
             if (ItemIdentifier != null)
             {
                 _context.ItemIdentifier.Remove(ItemIdentifier);
-                await _context.SaveChangesAsync();
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    return RedirectToPage("./Index");
+                }
+                
+                
             }
 
             return RedirectToPage("./Index");

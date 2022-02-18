@@ -19,12 +19,5 @@ namespace StoreServer.Data
         public DbSet<Order> Order { get; set; }
 
         public DbSet<ItemIdentifier> ItemIdentifier { get; set; }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<ItemIdentifier>().ToTable("ItemIdentifier");
-        //    modelBuilder.Entity<Order>().ToTable("Order");
-        //    modelBuilder.Entity<InventoryItem>().ToTable("InventoryItem");
-        //}
     }
 }
