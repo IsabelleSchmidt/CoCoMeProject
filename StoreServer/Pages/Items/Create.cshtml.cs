@@ -34,9 +34,11 @@ namespace StoreServer.Pages.Items
             {
                 return Page();
             }
-
-            _context.ItemIdentifier.Add(ItemIdentifier);
-            await _context.SaveChangesAsync();
+            if (_context.ItemIdentifier.ToList().Find(itemIdentifier => itemIdentifier.Name.ToLower() == ItemIdentifier.Name.ToLower()) == null)
+            {
+                _context.ItemIdentifier.Add(ItemIdentifier);
+                await _context.SaveChangesAsync();
+            }
 
             return RedirectToPage("./Index");
         }

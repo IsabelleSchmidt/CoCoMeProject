@@ -30,7 +30,7 @@ namespace StoreServer.Models.SeedData
                     },
                     new ItemIdentifier
                     {
-                        Name = "Toilet Paper"
+                        Name = "Toilettenpapier"
                     },
                     new ItemIdentifier
                     {
@@ -59,7 +59,7 @@ namespace StoreServer.Models.SeedData
                     },
                     new InventoryItem
                     {
-                        ItemIdentifierID = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Toilet Paper").ID,
+                        ItemIdentifierID = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Toilettenpapier").ID,
                         Count = 0,
                         Price = 3.1M
                     },
