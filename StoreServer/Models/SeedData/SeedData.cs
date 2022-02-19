@@ -30,6 +30,10 @@ namespace StoreServer.Models.SeedData
                     },
                     new ItemIdentifier
                     {
+                        Name = "Toilet Paper"
+                    },
+                    new ItemIdentifier
+                    {
                         Name = "Oliven"
                     }
 
@@ -52,6 +56,12 @@ namespace StoreServer.Models.SeedData
                         ItemIdentifierID = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Apfel").ID,
                         Count = 15,
                         Price = 2.50M
+                    },
+                    new InventoryItem
+                    {
+                        ItemIdentifierID = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Toilet Paper").ID,
+                        Count = 0,
+                        Price = 3.1M
                     },
                     new InventoryItem
                     {
