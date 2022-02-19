@@ -5,31 +5,151 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create Order</h1>
 
-<h4>Order</h4>
 <hr />
-<div class="row">
+
+<div class="row mb-2">
+    <div class="col-md-6">
+        <div class="card h-100 p-4">
+            <h5>Inventory</h5>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.InventoryItem[0].Count)
+                        </th>
+                        <th>
+                            Infos
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.InventoryItem) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.InventoryItemNames[item.ItemIdentifierID])
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Count)
+                            </td>
+                            <td>
+                                @if (item.Count < 10)
+                                {
+                                    <p style="color:red">Low in Stock!</p>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn-primary">Add to Order</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Order.OrderDate" class="control-label"></label>
-                <input asp-for="Order.OrderDate" class="form-control" />
-                <span asp-validation-for="Order.OrderDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Order.RecieveDate" class="control-label"></label>
-                <input asp-for="Order.RecieveDate" class="form-control" />
-                <span asp-validation-for="Order.RecieveDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        <div class="card h-100 p-4">
+            <h5>Currently not in inventory</h5>
+
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ItemIdentifier[0].Name)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ItemIdentifier) {
+                        @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifierID == item.ID) == null)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    <button class="btn-primary">Add to Order</button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+<div class="row mb-2">
+    <div class="col-md-6">
+        <div class="card h-100 p-4">
+            <h5>OrderItems</h5>
 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Count
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.InventoryItem) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.InventoryItemNames[item.ItemIdentifierID])
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input asp-for="InventoryItem.Count" class="form-control" style="width:100px"/>
+                                    <span asp-validation-for="InventoryItem.Count" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn-danger">Remove</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 p-4">
+            <h5>Complete Order</h5>
+
+            <br />
+
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Order.RecieveDate" />
+                <input type="hidden" asp-for="Order.OrderDate" />
+                @*reference selected items to order*@
+                <div class="form-group">
+                    <input type="submit" value="Create Order" class="btn btn-primary" />
+                </div>
+            </form>
+            @if (true)
+            {
+                
+                <hr />
+
+                <h6>Your generated Order ID:</h6>
+
+                <p>TODO: DISPLAY ORDER ID HERE</p>
+            }
+        </div>
+    </div>
+</div>
 <div>
     <a asp-page="Index">Back to List</a>
 </div>

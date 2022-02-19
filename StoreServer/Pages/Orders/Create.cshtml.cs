@@ -19,13 +19,22 @@ namespace StoreServer.Pages.Orders
             _context = context;
         }
 
+        public IList<ItemIdentifier> ItemIdentifier { get; set; }
+        public IList<InventoryItem> InventoryItem { get; set; }
+        public Dictionary<int, String> InventoryItemNames { get; set; } = new Dictionary<int, string>();
+
         public IActionResult OnGet()
         {
+            ItemIdentifier = _context.ItemIdentifier.ToList();
+            InventoryItem = _context.InventoryItem.ToList();
+            InventoryItem.ToList().ForEach(item => InventoryItemNames.Add(item.ItemIdentifierID, _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == item.ItemIdentifierID).Name));
             return Page();
         }
 
         [BindProperty]
         public Order Order { get; set; }
+
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
