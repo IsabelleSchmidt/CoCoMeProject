@@ -7,21 +7,30 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+/* Enterprise ID Button and Text Container Style*/
+
+.text-center {
+    margin-top: 50px;
+}
+
+/*Button style ab hier*/
+ /*Button style bis hier*/
+
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #000;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #FF69B4;
+    background-color: #FF69B4;
+    border-color: #FF69B4;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #FF82AB;
+    background-color: #FF82AB;
+    border-color: #FF82AB;
 }
 
 /* Sticky footer styles
@@ -36,10 +45,10 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #FF82AB;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #FF82AB;
 }
 
 .box-shadow {
@@ -51,21 +60,32 @@ button.accept-policy {
   line-height: inherit;
 }
 
+.bg-white {
+    background-color: #FF82AB !important;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #FFC0CB;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #FF82AB;
+    
+}
+
+.container {
+    color: #000;
 }
