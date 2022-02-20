@@ -19,5 +19,7 @@ namespace StoreServer.Data
         public DbSet<Order> Order { get; set; }
 
         public DbSet<ItemIdentifier> ItemIdentifier { get; set; }
+
+        public DbSet<StoreServer.Models.OrderItem> OrderItem { get; set; }
     }
 }

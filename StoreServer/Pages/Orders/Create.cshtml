@@ -44,8 +44,8 @@
                                     <p style="color:red">Low in Stock!</p>
                                 }
                             </td>
-                            <td>
-                                <button class="btn-primary">Add to Order</button>
+                            <td>     
+                                <a asp-route-data=@item.ItemIdentifierID asp-page-handler="AddOrderItem">Add to Order</a>
                             </td>
                         </tr>
                     }
@@ -103,19 +103,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.InventoryItem) {
+                    @foreach (var item in Model.OrderItem) {
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => Model.InventoryItemNames[item.ItemIdentifierID])
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input asp-for="InventoryItem.Count" class="form-control" style="width:100px"/>
+                                    <input asp-for="@item.Count" class="form-control" style="width:100px"/>
                                     <span asp-validation-for="InventoryItem.Count" class="text-danger"></span>
                                 </div>
                             </td>
                             <td>
-                                <button class="btn-danger">Remove</button>
+                                <a asp-route-data=@item.ItemIdentifierID asp-page-handler="RemoveOrderItem">Remove From Order</a>
                             </td>
                         </tr>
                     }

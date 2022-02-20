@@ -7,5 +7,7 @@
         public int ItemIdentifierID { get; set; }
 
         public int Count { get; set; }
+
+        public bool Submitted { get; set; }
     }
 }

@@ -10,6 +10,21 @@ namespace StoreServer.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "InventoryItem",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ItemIdentifierID = table.Column<int>(type: "int", nullable: false),
+                    Count = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InventoryItem", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ItemIdentifier",
                 columns: table => new
                 {
@@ -37,59 +52,25 @@ namespace StoreServer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InventoryItem",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ItemIdentifierID = table.Column<int>(type: "int", nullable: true),
-                    Count = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_InventoryItem", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_InventoryItem_ItemIdentifier_ItemIdentifierID",
-                        column: x => x.ItemIdentifierID,
-                        principalTable: "ItemIdentifier",
-                        principalColumn: "ID");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "OrderItem",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ItemIdentifierID = table.Column<int>(type: "int", nullable: true),
+                    ItemIdentifierID = table.Column<int>(type: "int", nullable: false),
                     Count = table.Column<int>(type: "int", nullable: false),
+                    Submitted = table.Column<bool>(type: "bit", nullable: false),
                     OrderID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OrderItem", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_OrderItem_ItemIdentifier_ItemIdentifierID",
-                        column: x => x.ItemIdentifierID,
-                        principalTable: "ItemIdentifier",
-                        principalColumn: "ID");
-                    table.ForeignKey(
                         name: "FK_OrderItem_Order_OrderID",
                         column: x => x.OrderID,
                         principalTable: "Order",
                         principalColumn: "ID");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InventoryItem_ItemIdentifierID",
-                table: "InventoryItem",
-                column: "ItemIdentifierID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderItem_ItemIdentifierID",
-                table: "OrderItem",
-                column: "ItemIdentifierID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItem_OrderID",
@@ -103,10 +84,10 @@ namespace StoreServer.Migrations
                 name: "InventoryItem");
 
             migrationBuilder.DropTable(
-                name: "OrderItem");
+                name: "ItemIdentifier");
 
             migrationBuilder.DropTable(
-                name: "ItemIdentifier");
+                name: "OrderItem");
 
             migrationBuilder.DropTable(
                 name: "Order");

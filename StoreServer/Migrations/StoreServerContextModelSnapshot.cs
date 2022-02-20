@@ -33,15 +33,13 @@ namespace StoreServer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ItemIdentifierID")
+                    b.Property<int>("ItemIdentifierID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("ItemIdentifierID");
 
                     b.ToTable("InventoryItem");
                 });
@@ -92,41 +90,27 @@ namespace StoreServer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ItemIdentifierID")
+                    b.Property<int>("ItemIdentifierID")
                         .HasColumnType("int");
 
                     b.Property<int?>("OrderID")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.Property<bool>("Submitted")
+                        .HasColumnType("bit");
 
-                    b.HasIndex("ItemIdentifierID");
+                    b.HasKey("ID");
 
                     b.HasIndex("OrderID");
 
                     b.ToTable("OrderItem");
                 });
 
-            modelBuilder.Entity("StoreServer.Models.InventoryItem", b =>
-                {
-                    b.HasOne("StoreServer.Models.ItemIdentifier", "ItemIdentifier")
-                        .WithMany()
-                        .HasForeignKey("ItemIdentifierID");
-
-                    b.Navigation("ItemIdentifier");
-                });
-
             modelBuilder.Entity("StoreServer.Models.OrderItem", b =>
                 {
-                    b.HasOne("StoreServer.Models.ItemIdentifier", "ItemIdentifier")
-                        .WithMany()
-                        .HasForeignKey("ItemIdentifierID");
-
                     b.HasOne("StoreServer.Models.Order", null)
                         .WithMany("OrderedItems")
                         .HasForeignKey("OrderID");
-
-                    b.Navigation("ItemIdentifier");
                 });
 
             modelBuilder.Entity("StoreServer.Models.Order", b =>
