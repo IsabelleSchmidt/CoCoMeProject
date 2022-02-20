@@ -46,8 +46,10 @@ namespace StoreServer.Pages.Items
             }
 
             ItemIdentifier = await _context.ItemIdentifier.FindAsync(id);
+            OrderItem orderItem = _context.OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierID == id);
+            InventoryItem inventoryItem = _context.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifierID == id);
 
-            if (ItemIdentifier != null)
+            if (ItemIdentifier != null  && orderItem == null && inventoryItem == null)
             {
                 _context.ItemIdentifier.Remove(ItemIdentifier);
                 try
