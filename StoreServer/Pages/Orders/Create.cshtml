@@ -1,0 +1,156 @@
+﻿@page
+@model StoreServer.Pages.Orders.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Order</h1>
+
+<hr />
+
+<div class="row mb-2">
+    <div class="col-md-6">
+        <div class="card h-100 p-4">
+            <h5>Inventory</h5>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.InventoryItem[0].Count)
+                        </th>
+                        <th>
+                            Infos
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.InventoryItem) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.ItemNames[item.ItemIdentifierID])
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Count)
+                            </td>
+                            <td>
+                                @if (item.Count < 10)
+                                {
+                                    <p style="color:red">Low in Stock!</p>
+                                }
+                            </td>
+                            <td>     
+                                <a asp-route-data=@item.ItemIdentifierID asp-page-handler="AddOrderItem">Add to Order</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 p-4">
+            <h5>Currently not in inventory</h5>
+
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ItemIdentifier[0].Name)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ItemIdentifier) {
+                        @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifierID == item.ID) == null)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    <a asp-route-data=@item.ID asp-page-handler="AddOrderItem">Add to Order</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-6">
+        <div class="card h-100 p-4">
+            <h5>OrderItems</h5>
+
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Order.RecieveDate" />
+                <input type="hidden" asp-for="Order.OrderDate" />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Count
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderItem) {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.ItemNames[item.ItemIdentifierID])
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input asp-for="@item.Count" class="form-control" oninput="" style="width:100px"/>
+                                        <span asp-validation-for="OrderItem.Count" class="text-danger"></span>
+                                    </div>                                
+                                </td>
+                                <td>
+                                    <a asp-route-data=@item.ItemIdentifierID asp-page-handler="RemoveOrderItem">Remove From Order</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <input type="submit" value="Create Order" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 p-4">
+            <h5>Complete Order</h5>
+
+            @if (true)
+            {
+                
+                <hr />
+
+                <h6>Your generated Order ID:</h6>
+
+                <p>TODO: DISPLAY ORDER ID HERE</p>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
