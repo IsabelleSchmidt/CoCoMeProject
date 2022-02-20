@@ -23,14 +23,16 @@ namespace StoreServer.Pages.Orders
         public IList<ItemIdentifier> ItemIdentifier { get; set; }
         public IList<InventoryItem> InventoryItem { get; set; }
         public IList<OrderItem> OrderItem { get; set; }
-        public Dictionary<int, String> InventoryItemNames { get; set; } = new Dictionary<int, string>();
+        public Dictionary<int, String> ItemNames { get; set; } = new Dictionary<int, string>();
+
 
         public IActionResult OnGet()
         {
             ItemIdentifier = _context.ItemIdentifier.ToList();
             InventoryItem = _context.InventoryItem.ToList();
             OrderItem = _context.OrderItem.ToList().FindAll(orderItem => orderItem.Submitted == false);
-            InventoryItem.ToList().ForEach(item => InventoryItemNames.Add(item.ItemIdentifierID, _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == item.ItemIdentifierID).Name));
+            ItemIdentifier.ToList().ForEach(itemIdentifier => ItemNames.Add(itemIdentifier.ID, itemIdentifier.Name));
+
             return Page();
         }
 
@@ -58,9 +60,9 @@ namespace StoreServer.Pages.Orders
             ItemIdentifier = _context.ItemIdentifier.ToList();
             InventoryItem = _context.InventoryItem.ToList();
             OrderItem = _context.OrderItem.ToList().FindAll(orderItem => orderItem.Submitted == false);
-            InventoryItem.ToList().ForEach(item => InventoryItemNames.Add(item.ItemIdentifierID, _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == item.ItemIdentifierID).Name));
+            ItemIdentifier.ToList().ForEach(itemIdentifier => ItemNames.Add(itemIdentifier.ID, itemIdentifier.Name));
             ItemIdentifier itemIdentifier = _context.ItemIdentifier.ToList().Find(itemIdentifier => itemIdentifier.ID == Convert.ToInt32(data));
-            if (itemIdentifier != null) 
+            if (itemIdentifier != null && OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierID == Convert.ToInt32(data)) == null)
             {
                 OrderItem orderItem = new OrderItem();
                 orderItem.ItemIdentifierID = itemIdentifier.ID;
@@ -77,7 +79,7 @@ namespace StoreServer.Pages.Orders
             ItemIdentifier = _context.ItemIdentifier.ToList();
             InventoryItem = _context.InventoryItem.ToList();
             OrderItem = _context.OrderItem.ToList().FindAll(orderItem => orderItem.Submitted == false);
-            InventoryItem.ToList().ForEach(item => InventoryItemNames.Add(item.ItemIdentifierID, _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == item.ItemIdentifierID).Name));
+            ItemIdentifier.ToList().ForEach(itemIdentifier => ItemNames.Add(itemIdentifier.ID, itemIdentifier.Name));
             int id = Convert.ToInt32(data);
 
             OrderItem orderItem = _context.OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierID == id);
