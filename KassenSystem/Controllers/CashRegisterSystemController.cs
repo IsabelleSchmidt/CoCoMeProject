@@ -7,23 +7,37 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.EntityFrameworkCore;
+using KassenSystem.Data;
+using KassenSystem.Models;
+
 namespace KassenSystem.Controllers
 {
     public class CashRegisterSystemController : Controller
     {
+        private readonly ItemContext _context;
         private readonly ILogger<CashRegisterSystemController> _logger;
-        private CustomerDisplayController customerDisplay;
 
-        public CashRegisterSystemController(ILogger<CashRegisterSystemController> logger)
+        public CashRegisterSystemController(ILogger<CashRegisterSystemController> logger, ItemContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
-            _logger.LogInformation("index");
-            return View();
+            return View(await _context.CheckoutItemModels.ToListAsync());
         }
+
+
+        
+
+
+
+
+
+
 
         public IActionResult CashDisplay()
         {
@@ -47,7 +61,7 @@ namespace KassenSystem.Controllers
             _logger.LogInformation("stop express");
         }
 
-        public IActionResult ChoosepaymentMethod()
+        public IActionResult ChoosePaymentMethod()
         {
             return View();
         }
