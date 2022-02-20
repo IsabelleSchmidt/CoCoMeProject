@@ -2,7 +2,7 @@
 
 namespace EnterpriseServer.Models
 {
-    public class Report
+    public class ReportModel
     {
         public int EnterpriseId { get; set; }
 

@@ -13,18 +13,51 @@ a.navbar-brand {
     margin-top: 50px;
 }
 
-/*Button style ab hier*/
- /*Button style bis hier*/
+/*Hier Gestaltung für Tabelle*/
+table, th, td {
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+    border-collapse: collapse;
+    background-color: #FF82AB;
+    border-color: #FFC0CB;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+}
 
+
+/*Button style ab hier*/
+a.btn {
+    appearance: button;
+    background-color: #FF82AB;
+    margin-top: 20px;
+}
+
+/*button.reportbtn {
+    border-radius: 5px;
+    box-shadow: none;
+    color: #000;
+    background-color: #FF82AB;
+    margin-top: 20px;
+    border-style: none;
+    padding-left: 30px;
+    padding-right: 30px;
+}*/
+
+.enterprise-id {
+    border-radius: 5px;
+    border-style: none;
+}
+/*Button style bis hier*/
 /* Provide sufficient contrast against white background */
 a {
     color: #000;
 }
 
 .btn-primary {
-    color: #FF69B4;
-    background-color: #FF69B4;
-    border-color: #FF69B4;
+    color: #FF82AB;
+    background-color: #FF82AB;
+    border-color: #FF82AB;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -47,9 +80,9 @@ html {
 .border-top {
     border-top: 1px solid #FF82AB;
 }
-.border-bottom {
+/*.border-bottom {
     border-bottom: 1px solid #FF82AB;
-}
+}*/
 
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
@@ -83,7 +116,6 @@ body {
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
     background-color: #FF82AB;
-    
 }
 
 .container {

@@ -8,11 +8,11 @@
         <h4> eine Bestellübersicht zu erhalten</h4>
     </div>
     <div class="text-center">
-        <div class="enterprise-id">
-            <input type="password" name="enterpriseid" placeholder="Enterprise ID" value="">
+        <div>
+            <input class="enterprise-id" type="password" name="enterpriseid" placeholder="Enterprise ID" value="">
         </div>
         <div class="report-button">
-            <button name="reportbtn">Bericht erstellen</button>
+            <a class="btn" asp-area="" asp-controller="Report" asp-action="Report">Bericht erstellen</a>
         </div>
     </div>
 </body>
