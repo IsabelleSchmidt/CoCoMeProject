@@ -26,6 +26,10 @@
                 Infos
             </th>
             <th></th>
+            @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.Count == 0) != null )
+            {
+              <th></th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -49,6 +53,18 @@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Change Price</a>
             </td>
+            @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.Count == 0) != null )
+            {
+                @if (item.Count == 0)
+                {
+                    <td>
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Remove</a>
+                    </td>
+                } else
+                {
+                    <td></td>  
+                }
+                }
         </tr>
 }
     </tbody>
