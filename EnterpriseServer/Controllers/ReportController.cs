@@ -1,29 +1,20 @@
 ﻿using EnterpriseServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EnterpriseServer.Controllers
 {
-    public class HomeController : Controller
+    public class ReportController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<ReportController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public ReportController(ILogger<ReportController> logger)
         {
             _logger = logger;
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }
