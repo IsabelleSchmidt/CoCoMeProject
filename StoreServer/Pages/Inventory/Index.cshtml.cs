@@ -26,7 +26,7 @@ namespace StoreServer.Pages.Inventory
         public async Task OnGetAsync()
         {
             InventoryItem = await _context.InventoryItem.ToListAsync();
-            InventoryItem.ToList().ForEach(item => InventoryItemNames.Add(item.ItemIdentifierID, _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == item.ItemIdentifierID).Name));
+            InventoryItem.ToList().ForEach(item => InventoryItemNames.Add(item.ItemIdentifierForeignKey, _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == item.ItemIdentifierForeignKey).Name));
         }
     }
 }

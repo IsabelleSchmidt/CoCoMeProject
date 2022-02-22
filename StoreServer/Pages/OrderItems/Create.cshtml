@@ -14,9 +14,9 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="OrderItem.ItemIdentifierID" class="control-label"></label>
-                <input asp-for="OrderItem.ItemIdentifierID" class="form-control" />
-                <span asp-validation-for="OrderItem.ItemIdentifierID" class="text-danger"></span>
+                <label asp-for="OrderItem.ItemIdentifierForeignKey" class="control-label"></label>
+                <input asp-for="OrderItem.ItemIdentifierForeignKey" class="form-control" />
+                <span asp-validation-for="OrderItem.ItemIdentifierForeignKey" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OrderItem.Count" class="control-label"></label>

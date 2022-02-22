@@ -37,7 +37,7 @@ namespace StoreServer.Pages.Orders
         }
 
         [BindProperty]
-        public Order Order { get; set; }
+        public Order Order { get; set; } = new Order();
 
 
 
@@ -49,6 +49,7 @@ namespace StoreServer.Pages.Orders
                 return Page();
             }
 
+            //_context.OrderItem.ToList().
             _context.Order.Add(Order);
             await _context.SaveChangesAsync();
 
@@ -62,11 +63,12 @@ namespace StoreServer.Pages.Orders
             OrderItem = _context.OrderItem.ToList().FindAll(orderItem => orderItem.Submitted == false);
             ItemIdentifier.ToList().ForEach(itemIdentifier => ItemNames.Add(itemIdentifier.ID, itemIdentifier.Name));
             ItemIdentifier itemIdentifier = _context.ItemIdentifier.ToList().Find(itemIdentifier => itemIdentifier.ID == Convert.ToInt32(data));
-            if (itemIdentifier != null && OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierID == Convert.ToInt32(data)) == null)
+            if (itemIdentifier != null && OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierForeignKey == Convert.ToInt32(data)) == null)
             {
                 OrderItem orderItem = new OrderItem();
-                orderItem.ItemIdentifierID = itemIdentifier.ID;
+                orderItem.ItemIdentifierForeignKey = itemIdentifier.ID;
                 orderItem.Count = 0;
+                orderItem.Submitted = false;
                 _context.OrderItem.Add(orderItem);
                 await _context.SaveChangesAsync();
                 OrderItem = _context.OrderItem.ToList().FindAll(orderItem => orderItem.Submitted == false);
@@ -82,7 +84,7 @@ namespace StoreServer.Pages.Orders
             ItemIdentifier.ToList().ForEach(itemIdentifier => ItemNames.Add(itemIdentifier.ID, itemIdentifier.Name));
             int id = Convert.ToInt32(data);
 
-            OrderItem orderItem = _context.OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierID == id);
+            OrderItem orderItem = _context.OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierForeignKey == id);
 
             if (OrderItem != null)
             {

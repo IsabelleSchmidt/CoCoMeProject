@@ -14,7 +14,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="InventoryItem.ID" />
-            <input type="hidden" asp-for="InventoryItem.ItemIdentifierID" />
+            <input type="hidden" asp-for="InventoryItem.ItemIdentifierForeignKey" />
             <div class="form-group">
                 <label asp-for="InventoryItem.Count" class="control-label"></label>
                 <input asp-for="InventoryItem.Count" class="form-control" readonly/>

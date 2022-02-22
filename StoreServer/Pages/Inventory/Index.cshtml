@@ -36,7 +36,7 @@
 @foreach (var item in Model.InventoryItem) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => Model.InventoryItemNames[item.ItemIdentifierID])
+                @Html.DisplayFor(modelItem => Model.InventoryItemNames[item.ItemIdentifierForeignKey])
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Count)

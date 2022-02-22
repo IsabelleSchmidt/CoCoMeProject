@@ -21,5 +21,13 @@ namespace StoreServer.Data
         public DbSet<ItemIdentifier> ItemIdentifier { get; set; }
 
         public DbSet<StoreServer.Models.OrderItem> OrderItem { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<InventoryItem>()
+                .HasOne(item => item.ItemIdentifier)
+                .WithOne(identifier => identifier.InventoryItem)
+                .HasForeignKey("ItemIdentifier", "ItemIdentifierForeignKey");
+        }
     }
 }

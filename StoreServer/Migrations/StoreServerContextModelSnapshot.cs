@@ -33,7 +33,7 @@ namespace StoreServer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("ItemIdentifierID")
+                    b.Property<int>("ItemIdentifierForeignKey")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -52,10 +52,17 @@ namespace StoreServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<int?>("ItemIdentifierForeignKey")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ItemIdentifierForeignKey")
+                        .IsUnique()
+                        .HasFilter("[ItemIdentifierForeignKey] IS NOT NULL");
 
                     b.ToTable("ItemIdentifier");
                 });
@@ -90,7 +97,13 @@ namespace StoreServer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("ItemIdentifierID")
+                    b.Property<int>("ItemIdentifierForeignKey")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ItemIdentifierID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderForeignKey")
                         .HasColumnType("int");
 
                     b.Property<int?>("OrderID")
@@ -101,21 +114,50 @@ namespace StoreServer.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("ItemIdentifierID");
+
                     b.HasIndex("OrderID");
 
                     b.ToTable("OrderItem");
                 });
 
+            modelBuilder.Entity("StoreServer.Models.ItemIdentifier", b =>
+                {
+                    b.HasOne("StoreServer.Models.InventoryItem", "InventoryItem")
+                        .WithOne("ItemIdentifier")
+                        .HasForeignKey("StoreServer.Models.ItemIdentifier", "ItemIdentifierForeignKey");
+
+                    b.Navigation("InventoryItem");
+                });
+
             modelBuilder.Entity("StoreServer.Models.OrderItem", b =>
                 {
-                    b.HasOne("StoreServer.Models.Order", null)
-                        .WithMany("OrderedItems")
+                    b.HasOne("StoreServer.Models.ItemIdentifier", "ItemIdentifier")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("ItemIdentifierID");
+
+                    b.HasOne("StoreServer.Models.Order", "Order")
+                        .WithMany("OrderItems")
                         .HasForeignKey("OrderID");
+
+                    b.Navigation("ItemIdentifier");
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("StoreServer.Models.InventoryItem", b =>
+                {
+                    b.Navigation("ItemIdentifier");
+                });
+
+            modelBuilder.Entity("StoreServer.Models.ItemIdentifier", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("StoreServer.Models.Order", b =>
                 {
-                    b.Navigation("OrderedItems");
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

@@ -32,7 +32,7 @@ namespace StoreServer.Pages.Inventory
             }
 
             InventoryItem = await _context.InventoryItem.FirstOrDefaultAsync(m => m.ID == id);
-            InventoryItemName = _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == InventoryItem.ItemIdentifierID).Name;
+            InventoryItemName = _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == InventoryItem.ItemIdentifierForeignKey).Name;
             if (InventoryItem == null)
             {
                 return NotFound();

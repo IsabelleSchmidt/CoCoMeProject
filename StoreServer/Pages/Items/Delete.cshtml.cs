@@ -46,8 +46,8 @@ namespace StoreServer.Pages.Items
             }
 
             ItemIdentifier = await _context.ItemIdentifier.FindAsync(id);
-            OrderItem orderItem = _context.OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierID == id);
-            InventoryItem inventoryItem = _context.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifierID == id);
+            OrderItem orderItem = _context.OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifierForeignKey == id);
+            InventoryItem inventoryItem = _context.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifierForeignKey == id);
 
             if (ItemIdentifier != null  && orderItem == null && inventoryItem == null)
             {

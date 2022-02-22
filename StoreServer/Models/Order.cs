@@ -12,6 +12,6 @@ namespace StoreServer.Models
         [DataType(DataType.Date)]
         public DateTime RecieveDate { get; set; }
 
-        public ICollection<OrderItem> OrderedItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }
