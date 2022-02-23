@@ -25,9 +25,14 @@ namespace StoreServer.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<InventoryItem>()
-                .HasOne(item => item.ItemIdentifier)
-                .WithOne(identifier => identifier.InventoryItem)
-                .HasForeignKey("ItemIdentifier", "ItemIdentifierForeignKey");
+                .HasOne(item => item.ItemIdentifier);
+
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(item => item.ItemIdentifier);
+
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(item => item.Order)
+                .WithMany(order => order.OrderItems);
         }
     }
 }

@@ -6,6 +6,9 @@ namespace StoreServer.Models
     {
         public int ID { get; set; }
 
+        public bool Submitted { get; set; }
+        public bool Received { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime OrderDate { get; set; }
 

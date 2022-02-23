@@ -10,18 +10,16 @@ namespace StoreServer.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "InventoryItem",
+                name: "ItemIdentifier",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Count = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ItemIdentifierForeignKey = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InventoryItem", x => x.ID);
+                    table.PrimaryKey("PK_ItemIdentifier", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -30,6 +28,8 @@ namespace StoreServer.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Submitted = table.Column<bool>(type: "bit", nullable: false),
+                    Received = table.Column<bool>(type: "bit", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RecieveDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -39,21 +39,22 @@ namespace StoreServer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemIdentifier",
+                name: "InventoryItem",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ItemIdentifierForeignKey = table.Column<int>(type: "int", nullable: true)
+                    Count = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ItemIdentifierID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemIdentifier", x => x.ID);
+                    table.PrimaryKey("PK_InventoryItem", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_ItemIdentifier_InventoryItem_ItemIdentifierForeignKey",
-                        column: x => x.ItemIdentifierForeignKey,
-                        principalTable: "InventoryItem",
+                        name: "FK_InventoryItem_ItemIdentifier_ItemIdentifierID",
+                        column: x => x.ItemIdentifierID,
+                        principalTable: "ItemIdentifier",
                         principalColumn: "ID");
                 });
 
@@ -65,9 +66,7 @@ namespace StoreServer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Count = table.Column<int>(type: "int", nullable: false),
                     Submitted = table.Column<bool>(type: "bit", nullable: false),
-                    ItemIdentifierForeignKey = table.Column<int>(type: "int", nullable: false),
                     ItemIdentifierID = table.Column<int>(type: "int", nullable: true),
-                    OrderForeignKey = table.Column<int>(type: "int", nullable: false),
                     OrderID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -86,11 +85,9 @@ namespace StoreServer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemIdentifier_ItemIdentifierForeignKey",
-                table: "ItemIdentifier",
-                column: "ItemIdentifierForeignKey",
-                unique: true,
-                filter: "[ItemIdentifierForeignKey] IS NOT NULL");
+                name: "IX_InventoryItem_ItemIdentifierID",
+                table: "InventoryItem",
+                column: "ItemIdentifierID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItem_ItemIdentifierID",
@@ -106,6 +103,9 @@ namespace StoreServer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "InventoryItem");
+
+            migrationBuilder.DropTable(
                 name: "OrderItem");
 
             migrationBuilder.DropTable(
@@ -113,9 +113,6 @@ namespace StoreServer.Migrations
 
             migrationBuilder.DropTable(
                 name: "Order");
-
-            migrationBuilder.DropTable(
-                name: "InventoryItem");
         }
     }
 }

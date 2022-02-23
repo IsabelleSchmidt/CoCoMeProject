@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.OrderItem[0].ItemIdentifierForeignKey)
+                @Html.DisplayNameFor(model => model.OrderItem[0].ItemIdentifier.ID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderItem[0].Count)
@@ -29,7 +29,7 @@
 @foreach (var item in Model.OrderItem) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ItemIdentifierForeignKey)
+                @Html.DisplayFor(modelItem => item.ItemIdentifier.ID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Count)

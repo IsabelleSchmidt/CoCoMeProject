@@ -33,7 +33,7 @@
                     @foreach (var item in Model.InventoryItem) {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => Model.ItemNames[item.ItemIdentifierForeignKey])
+                                @Html.DisplayFor(modelItem => item.ItemIdentifier.Name)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Count)
@@ -45,7 +45,7 @@
                                 }
                             </td>
                             <td>     
-                                <a asp-route-data=@item.ItemIdentifierForeignKey asp-page-handler="AddOrderItem">Add to Order</a>
+                                <a asp-route-data=@item.ItemIdentifier.ID asp-page-handler="AddOrderItem">Add to Order</a>
                             </td>
                         </tr>
                     }
@@ -68,7 +68,7 @@
                 </thead>
                 <tbody>
                     @foreach (var item in Model.ItemIdentifier) {
-                        @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifierForeignKey == item.ID) == null)
+                        @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifier.ID == item.ID) == null)
                         {
                             <tr>
                                 <td>
@@ -110,7 +110,7 @@
                         @foreach (var item in Model.OrderItem) {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => Model.ItemNames[item.ItemIdentifierForeignKey])
+                                    @Html.DisplayFor(modelItem => item.ItemIdentifier.Name)
                                 </td>
                                 <td>
                                     <div class="form-group">
@@ -119,7 +119,7 @@
                                     </div>                                
                                 </td>
                                 <td>
-                                    <a asp-route-data=@item.ItemIdentifierForeignKey asp-page-handler="RemoveOrderItem">Remove From Order</a>
+                                    <a asp-route-data=@item.ItemIdentifier.ID asp-page-handler="RemoveOrderItem">Remove From Order</a>
                                 </td>
                             </tr>
                         }

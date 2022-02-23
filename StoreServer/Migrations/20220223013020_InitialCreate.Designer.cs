@@ -12,7 +12,7 @@ using StoreServer.Data;
 namespace StoreServer.Migrations
 {
     [DbContext(typeof(StoreServerContext))]
-    [Migration("20220222213100_InitialCreate")]
+    [Migration("20220223013020_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,13 +35,15 @@ namespace StoreServer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("ItemIdentifierForeignKey")
+                    b.Property<int?>("ItemIdentifierID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ItemIdentifierID");
 
                     b.ToTable("InventoryItem");
                 });
@@ -54,17 +56,10 @@ namespace StoreServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int?>("ItemIdentifierForeignKey")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("ItemIdentifierForeignKey")
-                        .IsUnique()
-                        .HasFilter("[ItemIdentifierForeignKey] IS NOT NULL");
 
                     b.ToTable("ItemIdentifier");
                 });
@@ -80,8 +75,14 @@ namespace StoreServer.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Received")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("RecieveDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Submitted")
+                        .HasColumnType("bit");
 
                     b.HasKey("ID");
 
@@ -99,13 +100,7 @@ namespace StoreServer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("ItemIdentifierForeignKey")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ItemIdentifierID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderForeignKey")
                         .HasColumnType("int");
 
                     b.Property<int?>("OrderID")
@@ -123,19 +118,19 @@ namespace StoreServer.Migrations
                     b.ToTable("OrderItem");
                 });
 
-            modelBuilder.Entity("StoreServer.Models.ItemIdentifier", b =>
+            modelBuilder.Entity("StoreServer.Models.InventoryItem", b =>
                 {
-                    b.HasOne("StoreServer.Models.InventoryItem", "InventoryItem")
-                        .WithOne("ItemIdentifier")
-                        .HasForeignKey("StoreServer.Models.ItemIdentifier", "ItemIdentifierForeignKey");
+                    b.HasOne("StoreServer.Models.ItemIdentifier", "ItemIdentifier")
+                        .WithMany()
+                        .HasForeignKey("ItemIdentifierID");
 
-                    b.Navigation("InventoryItem");
+                    b.Navigation("ItemIdentifier");
                 });
 
             modelBuilder.Entity("StoreServer.Models.OrderItem", b =>
                 {
                     b.HasOne("StoreServer.Models.ItemIdentifier", "ItemIdentifier")
-                        .WithMany("OrderItems")
+                        .WithMany()
                         .HasForeignKey("ItemIdentifierID");
 
                     b.HasOne("StoreServer.Models.Order", "Order")
@@ -145,16 +140,6 @@ namespace StoreServer.Migrations
                     b.Navigation("ItemIdentifier");
 
                     b.Navigation("Order");
-                });
-
-            modelBuilder.Entity("StoreServer.Models.InventoryItem", b =>
-                {
-                    b.Navigation("ItemIdentifier");
-                });
-
-            modelBuilder.Entity("StoreServer.Models.ItemIdentifier", b =>
-                {
-                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("StoreServer.Models.Order", b =>
