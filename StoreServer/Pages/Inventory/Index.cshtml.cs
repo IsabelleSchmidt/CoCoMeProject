@@ -20,13 +20,11 @@ namespace StoreServer.Pages.Inventory
         }
 
         public IList<InventoryItem> InventoryItem { get;set; }
-        public Dictionary<int, String> InventoryItemNames { get; set; } = new Dictionary<int, string>();
 
 
         public async Task OnGetAsync()
         {
-            InventoryItem = await _context.InventoryItem.ToListAsync();
-            InventoryItem.ToList().ForEach(item => InventoryItemNames.Add(item.ItemIdentifierID, _context.ItemIdentifier.ToList().Find((itemIdentifier) => itemIdentifier.ID == item.ItemIdentifierID).Name));
+            InventoryItem = await _context.InventoryItem.Include(item => item.ItemIdentifier).ToListAsync();
         }
     }
 }

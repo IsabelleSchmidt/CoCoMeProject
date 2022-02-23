@@ -47,25 +47,25 @@ namespace StoreServer.Models.SeedData
                     context.InventoryItem.AddRange(
                     new InventoryItem
                     {
-                        ItemIdentifierID = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Tofu").ID,
+                        ItemIdentifier = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Tofu"),
                         Count = 10,
                         Price = 3.5M
                     },
                     new InventoryItem
                     {
-                        ItemIdentifierID = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Apfel").ID,
+                        ItemIdentifier = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Apfel"),
                         Count = 15,
                         Price = 2.50M
                     },
                     new InventoryItem
                     {
-                        ItemIdentifierID = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Toilettenpapier").ID,
+                        ItemIdentifier = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Toilettenpapier"),
                         Count = 0,
                         Price = 3.1M
                     },
                     new InventoryItem
                     {
-                        ItemIdentifierID = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Oliven").ID,
+                        ItemIdentifier = context.ItemIdentifier.ToList().Find((ItemIdentifier) => ItemIdentifier.Name == "Oliven"),
                         Count = 5,
                         Price = 3M
                     }

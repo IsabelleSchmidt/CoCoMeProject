@@ -29,7 +29,7 @@ namespace StoreServer.Pages.Inventory
                 return NotFound();
             }
 
-            InventoryItem = await _context.InventoryItem.FirstOrDefaultAsync(m => m.ID == id);
+            InventoryItem = await _context.InventoryItem.Include(item => item.ItemIdentifier).FirstOrDefaultAsync(m => m.ID == id);
 
             if (InventoryItem == null)
             {

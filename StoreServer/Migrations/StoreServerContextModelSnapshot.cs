@@ -33,13 +33,15 @@ namespace StoreServer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("ItemIdentifierID")
+                    b.Property<int?>("ItemIdentifierID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ItemIdentifierID");
 
                     b.ToTable("InventoryItem");
                 });
@@ -71,8 +73,14 @@ namespace StoreServer.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Received")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("RecieveDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Submitted")
+                        .HasColumnType("bit");
 
                     b.HasKey("ID");
 
@@ -90,7 +98,7 @@ namespace StoreServer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("ItemIdentifierID")
+                    b.Property<int?>("ItemIdentifierID")
                         .HasColumnType("int");
 
                     b.Property<int?>("OrderID")
@@ -101,21 +109,40 @@ namespace StoreServer.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("ItemIdentifierID");
+
                     b.HasIndex("OrderID");
 
                     b.ToTable("OrderItem");
                 });
 
+            modelBuilder.Entity("StoreServer.Models.InventoryItem", b =>
+                {
+                    b.HasOne("StoreServer.Models.ItemIdentifier", "ItemIdentifier")
+                        .WithMany()
+                        .HasForeignKey("ItemIdentifierID");
+
+                    b.Navigation("ItemIdentifier");
+                });
+
             modelBuilder.Entity("StoreServer.Models.OrderItem", b =>
                 {
-                    b.HasOne("StoreServer.Models.Order", null)
-                        .WithMany("OrderedItems")
+                    b.HasOne("StoreServer.Models.ItemIdentifier", "ItemIdentifier")
+                        .WithMany()
+                        .HasForeignKey("ItemIdentifierID");
+
+                    b.HasOne("StoreServer.Models.Order", "Order")
+                        .WithMany("OrderItems")
                         .HasForeignKey("OrderID");
+
+                    b.Navigation("ItemIdentifier");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("StoreServer.Models.Order", b =>
                 {
-                    b.Navigation("OrderedItems");
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

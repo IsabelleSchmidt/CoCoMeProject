@@ -33,7 +33,7 @@
                     @foreach (var item in Model.InventoryItem) {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => Model.ItemNames[item.ItemIdentifierID])
+                                @Html.DisplayFor(modelItem => item.ItemIdentifier.Name)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Count)
@@ -45,7 +45,7 @@
                                 }
                             </td>
                             <td>     
-                                <a asp-route-data=@item.ItemIdentifierID asp-page-handler="AddOrderItem">Add to Order</a>
+                                <a asp-route-data=@item.ItemIdentifier.ID asp-page-handler="AddOrderItem">Add to Order</a>
                             </td>
                         </tr>
                     }
@@ -68,7 +68,7 @@
                 </thead>
                 <tbody>
                     @foreach (var item in Model.ItemIdentifier) {
-                        @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifierID == item.ID) == null)
+                        @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifier.ID == item.ID) == null)
                         {
                             <tr>
                                 <td>
@@ -107,22 +107,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.OrderItem) {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => Model.ItemNames[item.ItemIdentifierID])
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input asp-for="@item.Count" class="form-control" oninput="" style="width:100px"/>
-                                        <span asp-validation-for="OrderItem.Count" class="text-danger"></span>
-                                    </div>                                
-                                </td>
-                                <td>
-                                    <a asp-route-data=@item.ItemIdentifierID asp-page-handler="RemoveOrderItem">Remove From Order</a>
-                                </td>
-                            </tr>
-                        }
+                        
+                            @foreach (var item in Model.OrderItem) {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ItemIdentifier.Name)
+                                    </td>
+
+                                    <td>
+                                        <div class="form-group">
+                                            @*<input asp-for="@item.Count" class="form-control" />*@
+                                            <input type="number"
+                                               name="Count"
+                                               value="@item.Count"/>
+                                            <span asp-validation-for="@item.Count" class="text-danger"></span>
+                                        </div>      
+                                    </td>
+                                    <td>
+                                        <a asp-route-data=@item.ItemIdentifier.ID asp-page-handler="RemoveOrderItem">Remove From Order</a>
+                                    </td>
+                                </tr>
+                            }
+                            
                     </tbody>
                 </table>
                 <div class="form-group">
