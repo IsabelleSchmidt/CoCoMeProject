@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -68,7 +69,15 @@ namespace StoreServer.Pages.Orders
             Order.Submitted = true;
             Order.OrderDate = DateTime.Now;
 
-            List<OrderItem> OrderItemList = _context.OrderItem.ToList().FindAll(orderItem => orderItem.Submitted == false).ToList();
+            IEnumerator countEnumerator = Count.GetEnumerator();
+            List<OrderItem> OrderItemList = _context.OrderItem.Include(orderItem => orderItem.ItemIdentifier).ToList().FindAll(orderItem => orderItem.Submitted == false).ToList();
+
+            OrderItemList.ForEach(orderItem =>
+            {
+                countEnumerator.MoveNext(); 
+                orderItem.Count = (int) countEnumerator.Current;
+                
+            });
             OrderItemList.ForEach(item => item.Submitted = true);
 
 
@@ -77,7 +86,7 @@ namespace StoreServer.Pages.Orders
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./OrderIdentifierScreen", new { id = Order.ID });
         }
 
         public async Task<IActionResult> OnGetAddOrderItem(string data)
