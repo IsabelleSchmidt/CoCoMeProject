@@ -107,22 +107,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.OrderItem) {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ItemIdentifier.Name)
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input asp-for="@item.Count" class="form-control" oninput="" style="width:100px"/>
-                                        <span asp-validation-for="OrderItem.Count" class="text-danger"></span>
-                                    </div>                                
-                                </td>
-                                <td>
-                                    <a asp-route-data=@item.ItemIdentifier.ID asp-page-handler="RemoveOrderItem">Remove From Order</a>
-                                </td>
-                            </tr>
-                        }
+                        
+                            @foreach (var item in Model.OrderItem) {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ItemIdentifier.Name)
+                                    </td>
+
+                                    <td>
+                                        <div class="form-group">
+                                            @*<input asp-for="@item.Count" class="form-control" />*@
+                                            <input type="number"
+                                               name="Count"
+                                               value="@item.Count"/>
+                                            <span asp-validation-for="@item.Count" class="text-danger"></span>
+                                        </div>      
+                                    </td>
+                                    <td>
+                                        <a asp-route-data=@item.ItemIdentifier.ID asp-page-handler="RemoveOrderItem">Remove From Order</a>
+                                    </td>
+                                </tr>
+                            }
+                            
                     </tbody>
                 </table>
                 <div class="form-group">

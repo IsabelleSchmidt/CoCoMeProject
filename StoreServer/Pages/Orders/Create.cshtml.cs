@@ -23,8 +23,10 @@ namespace StoreServer.Pages.Orders
 
         public IList<ItemIdentifier> ItemIdentifier { get; set; }
         public IList<InventoryItem> InventoryItem { get; set; }
+
+        [BindProperty]
         public IList<OrderItem> OrderItem { get; set; }
-        public Dictionary<int, String> ItemNames { get; set; } = new Dictionary<int, string>();
+        //public Dictionary<int, String> ItemNames { get; set; } = new Dictionary<int, string>();
         public Order Order { get; set; }
 
         public IActionResult OnGet()
@@ -56,7 +58,7 @@ namespace StoreServer.Pages.Orders
 
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int[] Count)
         {
             if (!ModelState.IsValid)
             {
