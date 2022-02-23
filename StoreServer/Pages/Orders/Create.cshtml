@@ -119,7 +119,9 @@
                                             @*<input asp-for="@item.Count" class="form-control" />*@
                                             <input type="number"
                                                name="Count"
-                                               value="@item.Count"/>
+                                               value="@item.Count"
+                                               
+                                               />
                                             <span asp-validation-for="@item.Count" class="text-danger"></span>
                                         </div>      
                                     </td>
@@ -135,21 +137,6 @@
                     <input type="submit" value="Create Order" class="btn btn-primary" />
                 </div>
             </form>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card h-100 p-4">
-            <h5>Complete Order</h5>
-
-            @if (true)
-            {
-                
-                <hr />
-
-                <h6>Your generated Order ID:</h6>
-
-                <p>TODO: DISPLAY ORDER ID HERE</p>
-            }
         </div>
     </div>
 </div>
