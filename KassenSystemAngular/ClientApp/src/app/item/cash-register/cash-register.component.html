@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-customer-display></app-customer-display>
+    </div>
+    <div class="col">
+      <h1 class="text-center">Kasse</h1>
+      <div class="container cashbox-keys">
+        <div class="row">
+          <button class="col cash-box-button" onclick="addToInputField(1)" disabled>1</button>
+          <button class="col cash-box-button" onclick="addToInputField(2)" disabled>2</button>
+          <button class="col cash-box-button" onclick="addToInputField(3)" disabled>3</button>
+        </div>
+        <div class="row">
+          <button class="col cash-box-button" onclick="addToInputField(4)" disabled>4</button>
+          <button class="col cash-box-button" onclick="addToInputField(5)" disabled>5</button>
+          <button class="col cash-box-button" onclick="addToInputField(6)" disabled>6</button>
+
+        </div>
+        <div class="row">
+          <button class="col cash-box-button" onclick="addToInputField(7)" disabled>7</button>
+          <button class="col cash-box-button" onclick="addToInputField(8)" disabled>8</button>
+          <button class="col cash-box-button" onclick="addToInputField(9)" disabled>9</button>
+        </div>
+        <div class="row">
+
+          <button class="col cash-box-button" onclick="addToInputField(.)" disabled>.</button>
+          <button class="col cash-box-button" onclick="addToInputField(0)" disabled>0</button>
+          <button class="col cash-box-button" onclick="removeLastInput()" disabled>-</button>
+        </div>
+        <div class="row">
+          <button class="col cash-box-button" id="input-ok" disabled>OK</button>
+        </div>
+      </div>
+
+      <div class="container cashbox-keys">
+        <div class="row">
+          <input class="col cash-box-input-field" type="text" id="input-cashbox" disabled>
+        </div>
+      </div>
+
+      <div class="container cashbox-keys">
+        <div class="row">
+          <a class="col cash-box-button" id="new-sale" asp-controller="CashRegisterSystem" asp-action="GetItemsListener">Neuer Kassiervorgang</a>
+          <a class="col cash-box-button" id="sale-finished" disabled>Zur Bezahlung</a>
+        </div>
+        <div class="row">
+          <a class="col cash-box-button" id="card-payment" disabled>Kartenzahlung</a>
+          <a class="col cash-box-button" id="cash-payment" disabled>Bargeldzahlung</a>
+        </div>
+        <div class="row">
+          <a class="col cash-box-button" id="item-by-id" disabled>Objekt-Id eingeben</a>
+          <a class="col cash-box-button" id="item-plus-one" asp-controller="Item" asp-action="LastPlusOne" disabled>Objekt + 1</a>
+
+        </div>
+        <div class="row">
+          <a class="col cash-box-button" id="delete-current-item" asp-controller="Item" asp-action="DeleteLast" disabled>Objekt Löschen</a>
+          <a class="col cash-box-button" id="stop-express-checkout">Expresskasse beenden</a>
+        </div>
+        <div class="row">
+          <a class="col cash-box-button" id="clear" asp-controller="Item" asp-action="EndSale">Beenden</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<head>
+  <style>
+    .add-button {
+      border: 0px solid black;
+      padding: 5px;
+      background-color: rgba(100,130,150,1);
+      border-radius: 10px;
+      margin: 5px;
+      color: #fff;
+    }
+      .add-button:hover {
+        background-color: rgba(50, 80, 100, 1);
+      }
+  </style>
+</head>
+<div class="text-center">
+  <h1 class="display-4">Produkte im Store</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Preis
+        </th>
+        <th>
+          Menge
+        </th>
+
+        <th></th>
+      </tr>
+    </thead>
+    
+    <tbody >
+      <tr *ngFor="let row of items" >
+
+        <td *ngIf="row.amount>0">
+          {{row.name}}
+        </td>
+        <td *ngIf="row.amount>0">
+          {{(row.price)/100 | currency:'EUR'}}
+        </td>
+        <td *ngIf="row.amount>0">
+          {{row.amount}}
+        </td>
+        <td *ngIf="row.amount>0"><button class="add-button" [class.selected]="row === selectedItem" type="button" (click)="onSelectItem(row)">Hinzufügen</button></td>
+
+
+      </tr>
+
+    </tbody>
+    </table>
+
+  </div>
