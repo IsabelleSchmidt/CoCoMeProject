@@ -22,6 +22,7 @@ namespace StoreServer.Pages.Items
         [BindProperty]
         public ItemIdentifier ItemIdentifier { get; set; }
 
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -46,7 +47,7 @@ namespace StoreServer.Pages.Items
             }
 
             ItemIdentifier = await _context.ItemIdentifier.FindAsync(id);
-            OrderItem orderItem = _context.OrderItem.ToList().Find(orderItem => orderItem.ItemIdentifier.ID == id);
+            OrderItem orderItem = _context.OrderItem.Include(item => item.ItemIdentifier).ToList().Find(orderItem => orderItem.ItemIdentifier.ID == id);
             InventoryItem inventoryItem = _context.InventoryItem.Include(item => item.ItemIdentifier).ToList().Find(inventoryItem => inventoryItem.ItemIdentifier.ID == id);
 
             if (ItemIdentifier != null  && orderItem == null && inventoryItem == null)

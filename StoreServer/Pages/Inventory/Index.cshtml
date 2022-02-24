@@ -45,9 +45,15 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @if (item.Count < 10)
+                @if (item.Count < 10 || item.Price == 0)
                 {
-                    <p style="color:red">Low in Stock!</p>
+                        @if (item.Price == 0)
+                        {
+                            <p style="color:red">Set Price!</p>
+                        } else
+                        {
+                            <p style="color:orange">Low in Stock!</p>
+                        }
                 }
             </td>
             <td>

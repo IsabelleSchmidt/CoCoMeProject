@@ -19,6 +19,7 @@ builder.Services.AddDbContext<StoreServerContext>(options =>
 
 var app = builder.Build();
 
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -71,6 +72,38 @@ app.UseEndpoints(endpoints =>
         order.ForEach(orderItem => orderItem.OrderItems.ToList().ForEach(orderItem => orderItem.Order = null));
         return order;
     });
+});
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/api/fetchitems", async (StoreServerContext context) =>
+    {
+        List<InventoryItem> inventoryItems = await context.InventoryItem.Include(item => item.ItemIdentifier).ToListAsync();
+        List<ReturnedItem> returnedItem = new List<ReturnedItem>();
+        inventoryItems.ForEach(inventoryItem => returnedItem.Add(new ReturnedItem(inventoryItem.ID, inventoryItem.ItemIdentifier.Name, inventoryItem.Count)));
+        return returnedItem;
+    });
+});
+
+app.MapGet("/api/removeitems/{id}/{removeCount}", async (int id, int removeCount, StoreServerContext context) =>
+{
+    if (await context.InventoryItem.FindAsync(id) is InventoryItem inventoryItem)
+    {
+        if (inventoryItem.Count - removeCount < 0) 
+        {
+            inventoryItem.Count = 0;
+            context.InventoryItem.Update(inventoryItem);
+        } else 
+        {
+            inventoryItem.Count -= removeCount;
+            context.InventoryItem.Update(inventoryItem);
+        }
+        
+        await context.SaveChangesAsync();
+        return Results.Ok(inventoryItem);
+    }
+
+    return Results.NotFound();
 });
 
 app.Run();

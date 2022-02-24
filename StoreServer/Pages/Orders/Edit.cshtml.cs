@@ -23,6 +23,9 @@ namespace StoreServer.Pages.Orders
         [BindProperty]
         public Order Order { get; set; }
 
+        public IList<OrderItem> OrderItem { get; set; }
+        public IList<InventoryItem> InventoryItem { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -31,6 +34,7 @@ namespace StoreServer.Pages.Orders
             }
 
             Order = await _context.Order.FirstOrDefaultAsync(m => m.ID == id);
+            OrderItem = _context.OrderItem.Include(item => item.Order).Include(item => item.ItemIdentifier).ToList().FindAll(orderItem => orderItem.Order.ID == Order.ID);
 
             if (Order == null)
             {
@@ -39,33 +43,33 @@ namespace StoreServer.Pages.Orders
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnGetAcceptOrder(int orderId)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            Order = await _context.Order.FirstOrDefaultAsync(m => m.ID == orderId);
+            OrderItem = _context.OrderItem.Include(item => item.Order).Include(item => item.ItemIdentifier).ToList().FindAll(orderItem => orderItem.Order.ID == Order.ID);
+            InventoryItem = _context.InventoryItem.Include(item => item.ItemIdentifier).ToList();
 
-            _context.Attach(Order).State = EntityState.Modified;
+            Order.Received = true;
+            Order.RecieveDate = DateTime.Now;
+            _context.Order.Update(Order);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!OrderExists(Order.ID))
+            OrderItem.ToList().ForEach(orderItem => {
+                InventoryItem existingInventoryItem = InventoryItem.ToList().Find(inventoryItem => inventoryItem.ItemIdentifier.ID == orderItem.ItemIdentifier.ID);
+                if (existingInventoryItem != null) 
                 {
-                    return NotFound();
-                }
-                else
+                    existingInventoryItem.Count += orderItem.Count;
+                } else
                 {
-                    throw;
+                    InventoryItem newInventoryItem = new InventoryItem();
+                    newInventoryItem.ItemIdentifier = orderItem.ItemIdentifier;
+                    newInventoryItem.Count = orderItem.Count;
+                    newInventoryItem.Price = 0;
+                    _context.InventoryItem.Add(newInventoryItem);
                 }
-            }
+            });
 
+            await _context.SaveChangesAsync();
+            OrderItem = _context.OrderItem.ToList().FindAll(orderItem => orderItem.Submitted == false);
             return RedirectToPage("./Index");
         }
 

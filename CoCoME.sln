@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "FostDevices-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseServer", "EnterpriseServer\EnterpriseServer.csproj", "{150445FF-2EA4-4CD5-89F6-3F798133A4EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreServer", "StoreServer\StoreServer.csproj", "{E4EDE03B-8903-4323-AB4B-701144EFA6D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreServer", "StoreServer\StoreServer.csproj", "{E4EDE03B-8903-4323-AB4B-701144EFA6D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
