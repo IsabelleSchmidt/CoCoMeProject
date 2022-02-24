@@ -50,15 +50,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapGet("/api/data", async (StoreServerContext context) =>
-    {
-        List<Order> order = await context.Order.Include(order => order.OrderItems).ToListAsync();
-        order.ForEach(orderItem => orderItem.OrderItems.ToList().ForEach(orderItem => orderItem.Order = null));
-        return order;
-    });
-});
 
 
 app.UseHttpsRedirection();
@@ -71,5 +62,15 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/api/data", async (StoreServerContext context) =>
+    {
+        List<Order> order = await context.Order.Include(order => order.OrderItems).ToListAsync();
+        order.ForEach(orderItem => orderItem.OrderItems.ToList().ForEach(orderItem => orderItem.Order = null));
+        return order;
+    });
+});
 
 app.Run();
