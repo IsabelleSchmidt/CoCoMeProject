@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using StoreServer.Data;
+using StoreServer.Models;
 using StoreServer.Models.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -60,5 +61,47 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/api/data", async (StoreServerContext context) =>
+    {
+        List<Order> order = await context.Order.Include(order => order.OrderItems).ToListAsync();
+        order.ForEach(orderItem => orderItem.OrderItems.ToList().ForEach(orderItem => orderItem.Order = null));
+        return order;
+    });
+});
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/api/fetchitems", async (StoreServerContext context) =>
+    {
+        List<InventoryItem> inventoryItems = await context.InventoryItem.Include(item => item.ItemIdentifier).ToListAsync();
+        List<ReturnedItem> returnedItem = new List<ReturnedItem>();
+        inventoryItems.ForEach(inventoryItem => returnedItem.Add(new ReturnedItem(inventoryItem.ID, inventoryItem.ItemIdentifier.Name, inventoryItem.Count)));
+        return returnedItem;
+    });
+});
+
+app.MapGet("/api/removeitems/{id}/{removeCount}", async (int id, int removeCount, StoreServerContext context) =>
+{
+    if (await context.InventoryItem.FindAsync(id) is InventoryItem inventoryItem)
+    {
+        if (inventoryItem.Count - removeCount < 0) 
+        {
+            inventoryItem.Count = 0;
+            context.InventoryItem.Update(inventoryItem);
+        } else 
+        {
+            inventoryItem.Count -= removeCount;
+            context.InventoryItem.Update(inventoryItem);
+        }
+        
+        await context.SaveChangesAsync();
+        return Results.Ok(inventoryItem);
+    }
+
+    return Results.NotFound();
+});
 
 app.Run();
