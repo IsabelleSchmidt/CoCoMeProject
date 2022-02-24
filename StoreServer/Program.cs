@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using StoreServer.Data;
+using StoreServer.Models;
 using StoreServer.Models.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -48,6 +49,17 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/api/data", async (StoreServerContext context) =>
+    {
+        List<Order> order = await context.Order.Include(order => order.OrderItems).ToListAsync();
+        order.ForEach(orderItem => orderItem.OrderItems.ToList().ForEach(orderItem => orderItem.Order = null));
+        return order;
+    });
+});
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
