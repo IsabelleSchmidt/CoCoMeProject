@@ -78,7 +78,7 @@ app.UseEndpoints(endpoints =>
     {
         List<InventoryItem> inventoryItems = await context.InventoryItem.Include(item => item.ItemIdentifier).ToListAsync();
         List<ReturnedItem> returnedItem = new List<ReturnedItem>();
-        inventoryItems.ForEach(inventoryItem => returnedItem.Add(new ReturnedItem(inventoryItem.ID, inventoryItem.ItemIdentifier.Name, inventoryItem.Count)));
+        inventoryItems.ForEach(inventoryItem => returnedItem.Add(new ReturnedItem(inventoryItem.ID, inventoryItem.ItemIdentifier.Name, inventoryItem.Price)));
         return returnedItem;
     });
 });
@@ -87,7 +87,10 @@ app.MapGet("/api/removeitems/{id}/{removeCount}", async (int id, int removeCount
 {
     if (await context.InventoryItem.FindAsync(id) is InventoryItem inventoryItem)
     {
-        if (inventoryItem.Count - removeCount < 0) 
+        if (inventoryItem.Count - removeCount < 10) {
+            
+        }
+            if (inventoryItem.Count - removeCount < 0) 
         {
             inventoryItem.Count = 0;
             context.InventoryItem.Update(inventoryItem);
