@@ -9,10 +9,145 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #128254;
+    color: #000;
+}
+
+/*General CSS*/
+.text-center {
+}
+
+
+/*Header*/
+
+/*.header {
+    background-color: #083724;
+    color: #000;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}*/
+
+.container {
+    color: #000;
+}
+
+/*Inventar */
+
+table, th, td {
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+    border-collapse: collapse;
+    background-color: #083724;
+    border-color: #128254;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    color: #fff;
+}
+
+a.btn {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+    a.btn:hover {
+        color: #128254;
+    }
+
+a.del {
+    color: #fff;
+    text-align: center;
+}
+
+    a.del:hover {
+        color: #128254;
+    }
+
+a.edit {
+    color: #fff;
+    text-align: center;
+}
+
+    a.edit:hover {
+        color: #128254;
+    }
+
+a.privacy {
+    color: #fff;
+}
+
+    a.privacy:hover {
+        color: #128254;
+    }
+
+p.lowstock {
+    color: #efb7b5;
+    background-color: #c03029;
+}
+
+td.low:empty {
+    background-color: #fff;
+    border-radius: 0px;
+}
+
+td.low {
+    background-color: #c03029;
+    border-radius: 0px;
+}
+
+td.normal {
+    background-color: #083724;
+    border-radius: 0px;
+}
+
+/*Footer*/
+.footer {
+    background-color: #083724;
+    color: #fff;
+    border-color: #083724;
+}
+
+.container {
+    color: #000;
+}
+
+.container2 {
+    color: #fff;
+    margin-left: 90px;
+}
+
+h1 {
+    color: #fff;
+}
+
+.header {
+    background-color: #128254;
+    color: #000;
+    border-color: #128254;
+}
+
+/* Welcome Page*/
+.mainindex-body {
+    background-color: #128254;
+    color: #000;
+}
+
+.index-text {
+    background-color: #128254;
+    color: #000;
+    margin-left: 250px;
+    margin-right: 250px;
+    text-align: center;
+    align-content:center;
 }

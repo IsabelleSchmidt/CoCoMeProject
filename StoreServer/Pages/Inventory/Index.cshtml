@@ -5,7 +5,7 @@
     ViewData["Title"] = "Inventory";
 }
 
-<h1>Inventory</h1>
+<h1>Inventar</h1>
 
 @*<p>
     <a asp-page="Create">Create New</a>
@@ -44,27 +44,32 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
                 @if (item.Count < 10 || item.Price == 0)
                 {
+                    <td class="low">
                         @if (item.Price == 0)
                         {
                             <p style="color:red">Set Price!</p>
                         } else
                         {
-                            <p style="color:orange">Low in Stock!</p>
+                            <p class="lowstock">Low in Stock!</p>
                         }
-                }
-            </td>
+                    </td>
+                }else
+                {
+                    <td class="normal">
+                        <p></p>
+                    </td>
+                }   
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Change Price</a>
+                <a class="edit" asp-page="./Edit" asp-route-id="@item.ID">Preis ändern</a>
             </td>
             @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.Count == 0) != null )
             {
                 @if (item.Count == 0)
                 {
                     <td>
-                        <a asp-page="./Delete" asp-route-id="@item.ID">Remove</a>
+                        <a class="del" asp-page="./Delete" asp-route-id="@item.ID">Entfernen</a>
                     </td>
                 } else
                 {
@@ -77,5 +82,5 @@
 </table>
 
 <div>
-        <a asp-page-handler="CreateReport">Create Report</a>
+        <a class="btn" asp-page-handler="CreateReport">PDF erstellen</a>
 </div>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/StoreServer.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <header class="header-top">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">StoreServer</a>
@@ -20,13 +20,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Inventory/Index">Inventory</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Inventory/Index">Inventar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Orders/Index">Orders</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Orders/Index">Bestellungen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Items/Index">Known Items</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Items/Index">Bekannte Produkte</a>
                         </li>
                     </ul>
                 </div>
@@ -40,8 +40,8 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - StoreServer - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <div class="container2">
+            &copy; 2022 - StoreServer - <a class="privacy" asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
