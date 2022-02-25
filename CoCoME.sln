@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KassenSystem", "KassenSystem\KassenSystem.csproj", "{B5372837-1362-4095-99BA-DED9BAD818C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KassenSystem", "KassenSystem\KassenSystem.csproj", "{B5372837-1362-4095-99BA-DED9BAD818C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankServer", "FostDevices-master\BankServer\BankServer.csproj", "{D04EB21B-B664-4473-94EB-47D8EDDCE2D3}"
 EndProject
@@ -11,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terminal", "FostDevices-mas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "FostDevices-master\TestConsole\TestConsole.csproj", "{47078C8F-C389-4847-A6CA-CBD83F7AFC1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreServer", "StoreServer\StoreServer.csproj", "{759ECA37-0448-4AD3-99FA-C6D18804D4D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreServer", "StoreServer\StoreServer.csproj", "{759ECA37-0448-4AD3-99FA-C6D18804D4D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseServer", "EnterpriseServer\EnterpriseServer.csproj", "{150445FF-2EA4-4CD5-89F6-3F798133A4EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseServer", "EnterpriseServer\EnterpriseServer.csproj", "{150445FF-2EA4-4CD5-89F6-3F798133A4EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KassenSystemAngular", "KassenSystemAngular\KassenSystemAngular.csproj", "{4AC174B1-339D-4466-94AE-623025BBC880}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KassenSystemApp", "KassenSystemApp\KassenSystemApp.csproj", "{A0152ABF-C9CE-41C4-8433-A1B11B51E499}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{150445FF-2EA4-4CD5-89F6-3F798133A4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{150445FF-2EA4-4CD5-89F6-3F798133A4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{150445FF-2EA4-4CD5-89F6-3F798133A4EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC174B1-339D-4466-94AE-623025BBC880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC174B1-339D-4466-94AE-623025BBC880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC174B1-339D-4466-94AE-623025BBC880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC174B1-339D-4466-94AE-623025BBC880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0152ABF-C9CE-41C4-8433-A1B11B51E499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0152ABF-C9CE-41C4-8433-A1B11B51E499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0152ABF-C9CE-41C4-8433-A1B11B51E499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0152ABF-C9CE-41C4-8433-A1B11B51E499}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
