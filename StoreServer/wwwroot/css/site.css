@@ -229,6 +229,33 @@ label {
         border-color: #083724;
     }
 
+/* Inventory Delete Page*/
+
+h3, h4{
+    color: #fff;
+}
+
+.col-sm-2 {
+    color: #fff;
+}
+
+.col-sm-10 {
+    color: #fff;
+}
+
+.btn-danger {
+    appearance: button;
+    background-color: #c03029;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-color: #c03029;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
 
 /*Footer*/
 .footer {
