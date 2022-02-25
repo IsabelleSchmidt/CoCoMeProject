@@ -25,17 +25,10 @@ body {
 }
 
 h1.display-4 {
-    color: #000;
+    color: #fff;
 }
-/*Header*/
-/*.header {
-    background-color: #083724;
-    color: #000;
-    padding-bottom: 0px;
-    padding-top: 0px;
-}*/
 .container {
-    color: #000;
+    color: #fff;
 }
 
 /*Inventar Index*/
@@ -337,7 +330,7 @@ h1 {
 
 .index-text {
     background-color: #128254;
-    color: #000;
+    color: #fff;
     margin-left: 250px;
     margin-right: 250px;
     text-align: center;
