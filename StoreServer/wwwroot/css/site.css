@@ -65,6 +65,10 @@ a.btn {
         color: #128254;
     }
 
+    a.btn:visited {
+        color: #fff;
+    }
+
 a.del {
     color: #fff;
     text-align: center;
@@ -72,6 +76,10 @@ a.del {
 
     a.del:hover {
         color: #128254;
+    }
+
+    a.del:visited {
+        color: #fff;
     }
 
 a.edit {
@@ -83,12 +91,20 @@ a.edit {
         color: #128254;
     }
 
+    a.edit:visited {
+        color: #fff;
+    }
+
 a.privacy {
     color: #fff;
 }
 
     a.privacy:hover {
         color: #128254;
+    }
+
+    a.privacy:visited {
+        color: #fff;
     }
 
 p.lowstock {
@@ -135,6 +151,10 @@ a.details {
 
     a.details:hover {
         color: #128254;
+    }
+
+    a.details:visited {
+        color: #fff;
     }
 
 /*Footer*/
