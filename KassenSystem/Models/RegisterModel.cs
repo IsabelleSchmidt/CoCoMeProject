@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace KassenSystemAngular.Models
+namespace KassenSystem.Models
 {
-    public class CheckoutItemModel
+    public class Item
     {
-
         [Key]
         public int Id { get; set; }
         [Required]
-        public int ItemId { get; set; }
-        [Required]
         public string Name { get; set; }
         [Required]
-        public int PriceSingle { get; set; }
-        [Required]
-        public int PriceFull { get; set; }
+        public int Price { get; set; }
         [Required]
         public int Amount { get; set; }
 

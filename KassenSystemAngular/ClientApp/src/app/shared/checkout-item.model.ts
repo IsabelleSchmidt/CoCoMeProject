@@ -1,16 +1,16 @@
 export class CheckoutItem {
   id: number;
-  itemid: number;
+  itemId: number;
   name: string;
-  pricesingle: number;
-  pricefull: number;
+  priceSingle: number;
+  priceFull: number;
   amount: number;
   constructor() {
-    this.id = 0;
-    this.itemid = 0;
+    //this.id = 0;
+    this.itemId = 0;
     this.name = "";
-    this.pricesingle = 0;
-    this.pricefull = 0;
+    this.priceSingle = 0;
+    this.priceFull = 0;
     this.amount = 0;
   }
 }

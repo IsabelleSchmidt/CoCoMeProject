@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Cash Register";
 }
-@model IEnumerable<KassenSystem.Models.CheckoutItemModel>
+@model IEnumerable<KassenSystem.Models.CheckoutItem>
 <div class="text-center">
     <h1 class="display-4">Willkommen</h1>
     <p>Um einen neuen Kassiervorgang zu starten, wählen Sie "Neu"</p>
@@ -32,10 +32,10 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PriceSingle)
+                        @Html.Raw(String.Format("{0}", (float)(item.PriceSingle)/100))
                     </td>
                      <td>
-                        @Html.DisplayFor(modelItem => item.PriceFull)
+                       @Html.Raw(String.Format("{0}", (float)(item.PriceFull)/100))
                     </td>
                      <td>
                         @Html.DisplayFor(modelItem => item.Amount)
@@ -46,4 +46,5 @@
             }
         </tbody>
     </table>
+    <h3>Summe: @ViewData["PriceSum"]€</h3>
 </div>

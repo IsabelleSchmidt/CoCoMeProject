@@ -1,13 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace KassenSystemAngular.Models
+namespace KassenSystem.Models
 {
     public enum PayWay
     {
         Card, Cash
     }
-    public class PaymentModel
+    public class Sale
     {
         [Key]
         public int Id { get; set; }

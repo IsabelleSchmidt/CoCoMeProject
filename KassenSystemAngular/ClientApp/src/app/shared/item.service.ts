@@ -1,33 +1,69 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item.model';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpBaseService } from './http-base.service';
+import { CheckoutItem } from './checkout-item.model';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  constructor(private http: HttpClient) { 
-}
-  readonly _baseUrl = "https://localhost:4200/api/Item";
-  formData: Item = new Item();
-  list: Item[];
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+  constructor(private httpBase: HttpBaseService, private httpClient: HttpClient){}
+  readonly endpoint = "item";
 
-  postMember() {
-    return this.http.post(this._baseUrl, this.formData);
+  private log(message: string) {
+    console.log(`ItemService: ${message}`);
   }
-  putItem() {
-    return this.http.put(this._baseUrl+"/"+this.formData.id,this.formData);
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
-  deleteItem(id: number)
+  getAllItems(): Observable<Item[]>
   {
-    return this.http.delete(this._baseUrl+"/"+id);
+    return this.httpBase.get<Item[]>(this.endpoint).pipe(tap(_ => this.log('fetched items')),
+      catchError(this.handleError<Item[]>('getItems', []))
+    );
   }
-  /*
-  refreshList() {
-    this.http.get(this._baseUrl)
-      .toPromise()
-      .then(res => this.list = res as Item[]);
+  getItem(id: number)
+  {
+    const url = `https://localhost:44320/${this.endpoint}/${id}`;
+    return this.httpBase.get<Item[]>(this.endpoint+"/"+id)
+      .pipe(
+        map(heroes => heroes[0]), // returns a {0|1} element array
+        tap(h => {
+          const outcome = h ? 'fetched' : 'did not find';
+          this.log(`${outcome} item id=${id}`);
+        }),
+        catchError(this.handleError<Item>(`getItem id=${id}`))
+      );
   }
-  */
+  addItem(item: Item): void {
+   
+
+    this.httpBase.post<CheckoutItem>(this.endpoint, item).subscribe();
+    /*.pipe(
+      tap((newHero: CheckoutItem) => this.log(`added item w/ id=${newHero.itemId}`)),
+        catchError(this.handleError<CheckoutItem>('addItem'))
+      );*/
+    
+    
+
+    
+  }
+  
+  
  }

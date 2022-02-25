@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
-import { CheckoutItem } from './checkout-item.model';
-import { HttpBaseService } from './http-base.service';
+import { HttpBaseService } from './shared/http-base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CheckoutItemService {
+export class RegisterService {
 
   constructor(private httpBase: HttpBaseService) { }
-  readonly endpoint = "checkoutItem";
+  readonly endpoint = "home";
   
   private log(message: string) {
     console.log(`ItemService: ${message}`);
@@ -27,14 +26,9 @@ export class CheckoutItemService {
       return of(result as T);
     };
   }
-  getAllItems(): Observable<CheckoutItem[]> {
-    return this.httpBase.get<CheckoutItem[]>(this.endpoint).pipe(tap(_ => this.log('fetched items')),
-      catchError(this.handleError<CheckoutItem[]>('getItems', []))
-    );
-  }
-  getSum(): Observable<number> {
-    return this.httpBase.get<number>(this.endpoint + "/sum").pipe(tap(_ => this.log('fetched items')),
-      catchError(this.handleError<number>('getItems', 0))
+  getId(): Observable<number> {
+    return this.httpBase.get<number>(this.endpoint).pipe(tap(_ => this.log('fetched register')),
+      catchError(this.handleError<number>('getRegister', 0))
     );
   }
 }

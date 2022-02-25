@@ -23,8 +23,15 @@ namespace KassenSystem
             services.AddDbContext<ItemContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddControllersWithViews();
-            
+            services.AddControllers();
+            services.AddCors(option =>
+            {
+                option.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,23 +51,14 @@ namespace KassenSystem
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                /*
-                endpoints.MapControllerRoute(
-                   name: "Home",
-                   pattern: "{controller=Home}/{action=Index}/{id?}");
-
-                */
-                
+                endpoints.MapControllers();
                
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=CashRegisterSystem}/{action=Index}/{id?}");
-                
 
             });
         }

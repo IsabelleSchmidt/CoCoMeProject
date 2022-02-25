@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Item } from '../../shared/item.model';
 import { ItemService } from "../../shared/item.service";
+
+import { PaymentMethod, Sale } from '../../shared/sale.model';
+import { SaleService } from "../../shared/sale.service";
 
 @Component({
   selector: 'app-scanner',
@@ -9,21 +13,25 @@ import { ItemService } from "../../shared/item.service";
   ]
 })
 export class ScannerComponent implements OnInit {
-  items: Item[] =[
-    { id: 11, name:"Nina", price: 100, amount: 1 },
-  { id: 12, name:"gdsa", price: 55, amount: 1 },
-  { id: 13, name:"sdg<", price: 4, amount: 0 },
-  { id: 14, name:"bsb", price: 79, amount: 1 },
-  { id: 15, name:"sbf", price: 222, amount: 1 },
-  { id: 16, name:"sb", price: 552, amount: 1 }
-  ];
-
-  selectedItem?: Item;
-  constructor(public service: ItemService) { }
+ 
+  items: Item[] = [];
+  selectedItem?: Observable<Item>;
+ 
+  
+  constructor(public service: ItemService) {
+    
+  }
 
   ngOnInit(): void {
+    this.getItems();
+  }
+  getItems(): void {
+    this.service.getAllItems()
+      .subscribe(items => this.items = items);
   }
   onSelectItem(item: Item): void {
-    this.selectedItem = item;
+    this.service.addItem(item);//.subscribe();
+   
   }
+  
 }

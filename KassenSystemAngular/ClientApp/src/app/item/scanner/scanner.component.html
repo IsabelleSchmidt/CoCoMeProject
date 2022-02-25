@@ -32,8 +32,8 @@
       </tr>
     </thead>
     
-    <tbody >
-      <tr *ngFor="let row of items" >
+    <tbody>
+      <tr *ngFor="let row of items">
 
         <td *ngIf="row.amount>0">
           {{row.name}}
@@ -44,11 +44,10 @@
         <td *ngIf="row.amount>0">
           {{row.amount}}
         </td>
-        <td *ngIf="row.amount>0"><button class="add-button" [class.selected]="row === selectedItem" type="button" (click)="onSelectItem(row)">Hinzufügen</button></td>
+        <td *ngIf="row.amount>0"><button class="add-button" type="button" (click)="onSelectItem(row)">Hinzufügen</button></td>
 
 
       </tr>
-
     </tbody>
     </table>
 

@@ -21,20 +21,20 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let row of items">
+      <tr *ngFor="let row of items ">
 
         <td *ngIf="row.amount>0">
           {{row.name}}
         </td>
         <td *ngIf="row.amount>0">
-          {{(row.pricesingle)/100 | currency:'EUR'}}
+          {{(row.priceSingle)/100 | currency:'EUR'}}
         </td>
 
         <td *ngIf="row.amount>0">
           {{row.amount}}
         </td>
         <td *ngIf="row.amount>0">
-          {{(row.pricefull)/100 | currency:'EUR'}}
+          {{(row.priceFull)/100 | currency:'EUR'}}
         </td>
        
 

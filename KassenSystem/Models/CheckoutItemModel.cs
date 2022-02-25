@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KassenSystem.Models
 {
-    public class CheckoutItemModel
+    public class CheckoutItem
     {
-
         [Key]
         public int Id { get; set; }
         [Required]
