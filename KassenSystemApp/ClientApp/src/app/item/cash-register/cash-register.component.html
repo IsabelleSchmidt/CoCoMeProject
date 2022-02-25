@@ -1,0 +1,111 @@
+<head>
+  <style>
+    .cashbox-keys {
+      text-align: center;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 20px auto;
+    }
+
+      .cashbox-keys .cash-box-button {
+        border: 0px solid black;
+        padding: 5px;
+        background-color: rgba(100,130,150,1);
+        border-radius: 10px;
+        margin: 5px;
+        color: #fff;
+      }
+
+        .cashbox-keys .cash-box-button:hover {
+          background-color: rgba(50, 80, 100, 1);
+        }
+
+        .cashbox-keys .cash-box-button:disabled {
+          background-color: rgba(110,140,160,1);
+          color: rgba(70,80,90,1)
+        }
+
+
+    .cash-box-input-field {
+      background-color: #fff;
+      border: 1px solid rgba(100,130,150,1);
+      border-radius: 10px;
+    }
+  </style>
+  <script src="./cash-register.js"></script>
+</head>
+
+<div class="container">
+  <div class="row justify-content-center">
+    
+    <div class="col-8">
+      <h1 class="text-center">Kasse</h1>
+      <div class="container cashbox-keys">
+        <div class="row">
+          <button [disabled]="keyInputDisabled" (click)="onKey('1')" class="col cash-box-button key-input">1</button>
+          <button [disabled]="keyInputDisabled" (click)="onKey('2')" class="col cash-box-button key-input">2</button>
+          <button [disabled]="keyInputDisabled" (click)="onKey('3')" class="col cash-box-button key-input">3</button>
+        </div>
+        <div class="row">
+          <button [disabled]="keyInputDisabled" (click)="onKey('4')" class="col cash-box-button key-input">4</button>
+          <button [disabled]="keyInputDisabled" (click)="onKey('5')" class="col cash-box-button key-input">5</button>
+          <button [disabled]="keyInputDisabled" (click)="onKey('6')" class="col cash-box-button key-input">6</button>
+
+        </div>
+        <div class="row">
+          <button [disabled]="keyInputDisabled" (click)="onKey('7')" class="col cash-box-button key-input">7</button>
+          <button [disabled]="keyInputDisabled" (click)="onKey('8')" class="col cash-box-button key-input">8</button>
+          <button [disabled]="keyInputDisabled" (click)="onKey('9')" class="col cash-box-button key-input">9</button>
+        </div>
+        <div class="row">
+
+          <button [disabled]="keyInputDisabled" (click)="onKey('.')" class="col cash-box-button key-input">.</button>
+          <button [disabled]="keyInputDisabled" (click)="onKey('0')" class="col cash-box-button key-input">0</button>
+          <button [disabled]="keyInputDisabled" (click)="onRemoveLast()" class="col cash-box-button key-input">-</button>
+        </div>
+        <div class="row">
+          <button [disabled]="okInputDisabled" (click)="onOk()" class="col cash-box-button" id="input-ok">OK</button>
+        </div>
+      </div>
+
+      <div class="container cashbox-keys">
+        <div class="row">
+          <input [disabled]="fieldInputDisabled" [value]="inputText" class="col cash-box-input-field" type="text" id="input-cashbox">
+        </div>
+      </div>
+
+      <div class="container cashbox-keys">
+        <div class="row">
+          <button [disabled]="newInputDisabled" class="col cash-box-button" id="new-sale" (click)="onNewSale()">
+            Neuer Kassiervorgang
+          </button>
+          <button [disabled]="payInputDisabled" class="col cash-box-button" id="sale-finished" (click)="onPay()">Zur Bezahlung</button>
+        </div>
+        <div class="row">
+          <button [disabled]="cardInputDisabled" class="col cash-box-button" id="card-payment" (click)="onCard()">
+            Kartenzahlung
+          </button>
+          <button [disabled]="cashInputDisabled" class="col cash-box-button" id="cash-payment" (click)="onCash()">Bargeldzahlung</button>
+        </div>
+        <div class="row">
+          <button [disabled]="itemidInputDisabled" class="col cash-box-button" id="item-by-id" (click)="onItemId()">
+            Objekt-Id eingeben
+          </button>
+          <button [disabled]="itemplusInputDisabled" class="col cash-box-button" id="item-plus-one" (click)="onItemPlus()">Objekt + 1</button>
+
+        </div>
+        <div class="row">
+          <button [disabled]="deleteInputDisabled" class="col cash-box-button" id="delete-current-item"  (click)="onDelete()">
+            Objekt Löschen
+          </button>
+          <button [disabled]="expressInputDisabled" class="col cash-box-button" id="stop-express-checkout" (click)="onExpress()">Expresskasse beenden</button>
+        </div>
+        <div class="row">
+          <button [disabled]="endInputDisabled" class="col cash-box-button" id="clear"  (click)="onEnd()">Beenden</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

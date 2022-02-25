@@ -14,7 +14,7 @@ namespace KassenSystem.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class SaleController : Controller
+    public class SaleController : ControllerBase
     {
 
       
@@ -38,7 +38,7 @@ namespace KassenSystem.Controllers
             _context.SaleModels0.Add(sale);
             await _context.SaveChangesAsync();
         }
-        [HttpGet("/removeexpired")]
+        [HttpGet("removeexpired")]
         public async Task DeleteSale()
         {
             foreach (Sale s in await _context.SaleModels0.ToListAsync())
@@ -51,7 +51,7 @@ namespace KassenSystem.Controllers
             }
             await _context.SaveChangesAsync();
         }
-        [HttpGet("/express")]
+        [HttpGet("express")]
         public async Task<bool> GetIsExpress()
         {
             int cash = 0;
@@ -67,10 +67,16 @@ namespace KassenSystem.Controllers
                     card += 1;
                 }
             }
-            return cash>card;
+            return (cash>card);
             
         }
+        [HttpGet("{id}")]
+        public async Task<Sale> GetSale(int id)
+        {
+            return await _context.SaleModels0.FindAsync(id);
 
-    
+        }
+
+
     }
 }

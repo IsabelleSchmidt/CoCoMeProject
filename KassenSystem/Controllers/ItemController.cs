@@ -19,6 +19,9 @@ using KassenSystem.BarcodeScannerService;
 using KassenSystem.CashboxService;
 using KassenSystem.DisplayController;
 using KassenSystem.PrintingService;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 /*
 var connector = new ServerConnector(new DiscoveryExecutionManager());
 var discovery = new ServerDiscovery(connector);
@@ -54,26 +57,26 @@ readBarcodes.Cancel();
 
 static async void PrintNumberOfArticlesScanned(IPrintingService printer, IIntermediateObservableCommand<string> barcodes)
 {
-    var itemsScanned = 0;
-    while (await barcodes.IntermediateValues.WaitToReadAsync())
-    {
-        if (barcodes.IntermediateValues.TryRead(out var barcode))
-        {
-            itemsScanned++;
-            printer.PrintLine(barcode);
-            Console.WriteLine($"Scanned {barcode} ({itemsScanned} items total)");
-        }
-    }
+var itemsScanned = 0;
+while (await barcodes.IntermediateValues.WaitToReadAsync())
+{
+if (barcodes.IntermediateValues.TryRead(out var barcode))
+{
+itemsScanned++;
+printer.PrintLine(barcode);
+Console.WriteLine($"Scanned {barcode} ({itemsScanned} items total)");
+}
+}
 }
 static async void DisplayButtonsPressed(IDisplayController display, IIntermediateObservableCommand<CashboxButton> cashboxButtons)
 {
-    while (await cashboxButtons.IntermediateValues.WaitToReadAsync())
-    {
-        if (cashboxButtons.IntermediateValues.TryRead(out var button))
-        {
-            display.SetDisplayText($"{button} pressed");
-        }
-    }
+while (await cashboxButtons.IntermediateValues.WaitToReadAsync())
+{
+if (cashboxButtons.IntermediateValues.TryRead(out var button))
+{
+display.SetDisplayText($"{button} pressed");
+}
+}
 }
 */
 namespace KassenSystem.Controllers
@@ -107,6 +110,25 @@ namespace KassenSystem.Controllers
         public async Task<ActionResult<IEnumerable<Item>>> GetAllItems()
         {
             _logger.LogInformation("lalalla");
+            /*
+            var jsonRequest = Json(new { ServerId = "1", ServerPort = "27015" }).Value.ToString();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:7071/api/fetchitems ");
+            client.DefaultRequestHeaders
+                  .Accept
+                  .Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "relativeAddress");
+
+
+            _logger.LogInformation(request.RequestUri.ToString());
+            await client.SendAsync(request)
+                  .ContinueWith(responseTask =>
+                  {
+                              //here get itemlist from response, put in db 
+                              _logger.LogInformation("Response: {0}", responseTask.Result);
+                  });
+            */
             return await _context.ItemModels.ToListAsync();
         }
         
@@ -147,7 +169,7 @@ namespace KassenSystem.Controllers
             //return await _context.CheckoutItemModels0.FindAsync(item.Id);
         }
 
-        [HttpPost("/{id}")]
+        [HttpPost("{id}")]
         public async Task PostById(int id)
         {
             _logger.LogInformation("item: " + id);

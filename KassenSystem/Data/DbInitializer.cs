@@ -43,15 +43,7 @@ namespace KassenSystem.Data
             }
             context.SaveChanges();
 
-            var checkoutitems = new CheckoutItem[]
-           {
-            new CheckoutItem{ItemId=1000,Name="Spaghetti",PriceFull=198,Amount=2,PriceSingle=99}
-           };
-            foreach (CheckoutItem s in checkoutitems)
-            {
-                context.CheckoutItemModels0.Add(s);
-            }
-            context.SaveChanges();
+           
 
             var pay = new Sale[]
             {

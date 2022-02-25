@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Web;
@@ -83,24 +85,57 @@ namespace KassenSystem.Controllers
         [HttpGet("plusone")]
         public async Task LastPlusOne()
         {
-            CheckoutItem lastItem = await _context.CheckoutItemModels0.FindAsync(_context.CheckoutItemModels0.Max(p => p.Id));
-            if (lastItem != null)
+            if (_context.CheckoutItemModels0.Any())
             {
 
-                lastItem.Amount -= 1;
-                lastItem.PriceFull = lastItem.Amount * lastItem.PriceSingle;
-                _context.CheckoutItemModels0.Update(lastItem);
-                await _context.SaveChangesAsync();
+                CheckoutItem lastItem = await _context.CheckoutItemModels0.FindAsync(_context.CheckoutItemModels0.Max(p => p.Id));
+                if (lastItem != null)
+                {
 
+                    lastItem.Amount -= 1;
+                    lastItem.PriceFull = lastItem.Amount * lastItem.PriceSingle;
+                    _context.CheckoutItemModels0.Update(lastItem);
+                    await _context.SaveChangesAsync();
+
+                }
             }
         }
         [HttpDelete]
         public async Task Clear()
         {
+            if(_context.CheckoutItemModels0.Any<CheckoutItem>())
+            {
+                _context.CheckoutItemModels0.RemoveRange(_context.CheckoutItemModels0);
+                await _context.SaveChangesAsync();
+            }
+            
 
-            _context.CheckoutItemModels0.RemoveRange(_context.CheckoutItemModels0);
-            await _context.SaveChangesAsync();
+            
+        }
+        [HttpGet("finish")]
+        public async Task Finish()
+        {
+            //var jsonRequest = Json(new { ServerId = "1", ServerPort = "27015" }).Value.ToString();
+            HttpClient client;
+            foreach (var item in _context.CheckoutItemModels0)
+            {
+                client = new HttpClient();
+                client.BaseAddress = new Uri("https://localhost:7071/api/delete/"+item.ItemId+"/"+item.Amount);
+                client.DefaultRequestHeaders
+                      .Accept
+                      .Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
 
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Delete, "relativeAddress");
+
+
+                _logger.LogInformation(request.RequestUri.ToString());
+                await client.SendAsync(request)
+                      .ContinueWith(responseTask =>
+                      {
+                      //here your response 
+                      _logger.LogInformation("Response: {0}", responseTask.Result);
+                      });
+            }
             
         }
 
