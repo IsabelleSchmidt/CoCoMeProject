@@ -21,23 +21,24 @@ body {
 
 /*General CSS*/
 .text-center {
+
 }
 
-
+h1.display-4 {
+    color: #000;
+}
 /*Header*/
-
 /*.header {
     background-color: #083724;
     color: #000;
     padding-bottom: 0px;
     padding-top: 0px;
 }*/
-
 .container {
     color: #000;
 }
 
-/*Inventar */
+/*Inventar Index*/
 
 table, th, td {
     border-radius: 10px;
@@ -127,7 +128,7 @@ td.normal {
     border-radius: 0px;
 }
 
-/*Order Page*/
+/*Order Page Index*/
 
 a.newOrder {
     appearance: button;
@@ -156,6 +157,26 @@ a.details {
     a.details:visited {
         color: #fff;
     }
+
+
+/*Known / All Items Index */
+
+a.create {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+a.create:hover {
+    color: #128254;
+}
+
+
 
 /*Footer*/
 .footer {
