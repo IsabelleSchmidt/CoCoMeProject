@@ -7,9 +7,6 @@
 
 <h1>Orders</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -59,11 +56,11 @@
             <td>
                 @if (!item.Received) 
                 {
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Accept</a> <span>|</span>
+                    <a class="edit" asp-page="./Edit" asp-route-id="@item.ID">Annehmen</a> <span>|</span>
                 }
                 @if(item.Submitted)
                 {
-                     <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                     <a class="details" asp-page="./Details" asp-route-id="@item.ID">Details</a>
                 }else
                 {
                     <a asp-page="./Create">Details</a>
@@ -73,3 +70,6 @@
 }
     </tbody>
 </table>
+<p>
+    <a class="newOrder" asp-page="Create">Neue Bestellung</a>
+</p>

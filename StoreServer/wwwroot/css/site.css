@@ -111,6 +111,32 @@ td.normal {
     border-radius: 0px;
 }
 
+/*Order Page*/
+
+a.newOrder {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+a.newOrder:hover {
+    color: #128254;
+}
+
+a.details {
+    color: #fff;
+    text-align: center;
+}
+
+    a.details:hover {
+        color: #128254;
+    }
+
 /*Footer*/
 .footer {
     background-color: #083724;
