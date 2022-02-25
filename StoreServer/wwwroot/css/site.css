@@ -172,10 +172,62 @@ a.create {
     padding: 8px;
 }
 
-a.create:hover {
-    color: #128254;
+    a.create:hover {
+        color: #128254;
+    }
+
+
+/*Inventory Edit Page*/
+
+label {
+    color:#fff;
 }
 
+.form-control {
+    background-color: #083724;
+    color: #fff;
+    border-radius: 5px;
+    border-style: none;
+}
+
+    .form-control:active {
+        border-color: #fff;
+        box-shadow: none;
+    }
+
+.back {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 50px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+    a.back:hover {
+        color: #128254;
+    }
+
+.btn-primary {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-color: #083724;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+    .btn-primary:hover {
+        background-color: #083724;
+        color: #128254;
+        border-color: #083724;
+    }
 
 
 /*Footer*/
