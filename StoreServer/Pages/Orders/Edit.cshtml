@@ -5,9 +5,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Accept Delivery</h1>
+<h1>Bestellung annehmen</h1>
 
-<h4>Order</h4>
+<h4>Bestellung</h4>
 <hr />
 <dl class="row">
     <dt class="col-sm-2">
@@ -51,12 +51,10 @@
     </tbody>
 </table>
 <div>
-<a asp-route-orderId=@Model.Order.ID asp-page-handler="AcceptOrder">Accept Order</a>
+    <a class="accept" asp-route-orderId=@Model.Order.ID asp-page-handler="AcceptOrder">Annehmen</a> |
+    <a class="back" asp-page="./Index">Zurück</a>
+</div>
 
-</div>
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

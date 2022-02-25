@@ -279,6 +279,30 @@ a.add {
         color: #128254;
     }
 
+
+/*Order Details Page*/
+
+a.accept {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-color: #083724;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+    .accept:hover {
+        background-color: #083724;
+        color: #128254;
+        border-color: #083724;
+    }
+}
+
+
 /*Footer*/
 .footer {
     background-color: #083724;
