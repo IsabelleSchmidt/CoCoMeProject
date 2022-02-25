@@ -257,6 +257,28 @@ h3, h4{
 }
 
 
+/*Order create Page*/
+
+.p-4 {
+    background-color: #128254;
+    color: #fff;
+    border-radius: 20px;
+    border-width: 0px;
+}
+
+.col-md-6 {
+    background-color: #128254;
+}
+
+a.add {
+    color: #fff;
+    text-align: center;
+}
+
+    a.add:hover {
+        color: #128254;
+    }
+
 /*Footer*/
 .footer {
     background-color: #083724;
