@@ -11,8 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terminal", "FostDevices-mas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "FostDevices-master\TestConsole\TestConsole.csproj", "{47078C8F-C389-4847-A6CA-CBD83F7AFC1E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreServer", "StoreServer\StoreServer.csproj", "{759ECA37-0448-4AD3-99FA-C6D18804D4D6}"
-EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreServer", "StoreServer\StoreServer.csproj", "{E4EDE03B-8903-4323-AB4B-701144EFA6D9}"
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseServer", "EnterpriseServer\EnterpriseServer.csproj", "{150445FF-2EA4-4CD5-89F6-3F798133A4EC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KassenSystemAngular", "KassenSystemAngular\KassenSystemAngular.csproj", "{4AC174B1-339D-4466-94AE-623025BBC880}"
@@ -41,14 +40,14 @@ Global
 		{47078C8F-C389-4847-A6CA-CBD83F7AFC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47078C8F-C389-4847-A6CA-CBD83F7AFC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47078C8F-C389-4847-A6CA-CBD83F7AFC1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{759ECA37-0448-4AD3-99FA-C6D18804D4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{759ECA37-0448-4AD3-99FA-C6D18804D4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{759ECA37-0448-4AD3-99FA-C6D18804D4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{759ECA37-0448-4AD3-99FA-C6D18804D4D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{150445FF-2EA4-4CD5-89F6-3F798133A4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{150445FF-2EA4-4CD5-89F6-3F798133A4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{150445FF-2EA4-4CD5-89F6-3F798133A4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{150445FF-2EA4-4CD5-89F6-3F798133A4EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4EDE03B-8903-4323-AB4B-701144EFA6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4EDE03B-8903-4323-AB4B-701144EFA6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4EDE03B-8903-4323-AB4B-701144EFA6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4EDE03B-8903-4323-AB4B-701144EFA6D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4AC174B1-339D-4466-94AE-623025BBC880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4AC174B1-339D-4466-94AE-623025BBC880}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AC174B1-339D-4466-94AE-623025BBC880}.Release|Any CPU.ActiveCfg = Release|Any CPU
