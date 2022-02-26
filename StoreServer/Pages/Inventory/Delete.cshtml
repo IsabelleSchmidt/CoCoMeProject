@@ -1,0 +1,40 @@
+﻿@page
+@model StoreServer.Pages.Inventory.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Löschen</h1>
+
+<h3>Bist du dir sicher, dass du das Produkt entfernen willst?</h3>
+<div>
+    <h4>Produkt</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventoryItem.ItemIdentifier.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventoryItem.ItemIdentifier.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventoryItem.Count)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventoryItem.Count)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventoryItem.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventoryItem.Price)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="InventoryItem.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="back" asp-page="./Index">Zurück</a>
+    </form>
+</div>

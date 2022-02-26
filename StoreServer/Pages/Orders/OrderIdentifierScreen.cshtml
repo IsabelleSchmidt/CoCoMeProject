@@ -1,0 +1,20 @@
+﻿@page "{id}"
+@model StoreServer.Pages.Orders.OrderIdentifierScreenModel
+
+@{
+    ViewData["Title"] = "OrderIdentifierScreen";
+    ViewData["orderId"] = RouteData.Values["id"];
+}
+
+<h1>Create Order</h1>
+
+<hr />
+<div class="col-md-4">
+    <div class="card h-100 p-4">
+        <h5>Complete Order</h5>
+        <hr />
+        <h6>Your generated Order ID:</h6>
+        <p>@ViewData["orderId"]</p>
+        <a class="back" asp-page="Index">Zurück</a>
+    </div>
+</div>

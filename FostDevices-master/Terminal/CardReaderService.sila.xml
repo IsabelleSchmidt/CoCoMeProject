@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SiLA2Version="1.0" FeatureVersion="1.0" Originator="cocome.terminal" Category="contracts" xmlns="http://www.sila-standard.org">
+  <Identifier>CardReaderService</Identifier>
+  <DisplayName>Card Reader Service</DisplayName>
+  <Description />
+  <DataTypeDefinition>
+    <Identifier>AuthorizationData</Identifier>
+    <DisplayName>Authorization Data</DisplayName>
+    <Description />
+    <DataType>
+      <Structure>
+        <Element>
+          <Identifier>Amount</Identifier>
+          <DisplayName>Amount</DisplayName>
+          <Description />
+          <DataType>
+            <Basic>Integer</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>Account</Identifier>
+          <DisplayName>Account</DisplayName>
+          <Description />
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>AuthorizationToken</Identifier>
+          <DisplayName>AuthorizationToken</DisplayName>
+          <Description />
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+      </Structure>
+    </DataType>
+  </DataTypeDefinition>
+  <Command>
+    <Identifier>Authorize</Identifier>
+    <DisplayName>Authorize</DisplayName>
+    <Description />
+    <Observable>Yes</Observable>
+    <Parameter>
+      <Identifier>Amount</Identifier>
+      <DisplayName>Amount</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>Integer</Basic>
+      </DataType>
+    </Parameter>
+    <Parameter>
+      <Identifier>Challenge</Identifier>
+      <DisplayName>Challenge</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>Binary</Basic>
+      </DataType>
+    </Parameter>
+    <Response>
+      <Identifier>ReturnValue</Identifier>
+      <DisplayName>Return Value</DisplayName>
+      <Description />
+      <DataType>
+        <DataTypeIdentifier>AuthorizationData</DataTypeIdentifier>
+      </DataType>
+    </Response>
+  </Command>
+  <Command>
+    <Identifier>Confirm</Identifier>
+    <DisplayName>Confirm</DisplayName>
+    <Description />
+    <Observable>No</Observable>
+  </Command>
+  <Command>
+    <Identifier>Abort</Identifier>
+    <DisplayName>Abort</DisplayName>
+    <Description />
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>ErrorMessage</Identifier>
+      <DisplayName>Error Message</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+  </Command>
+</Feature>

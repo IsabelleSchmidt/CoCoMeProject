@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SiLA2Version="1.0" FeatureVersion="1.0" Originator="cocome.terminal" Category="contracts" xmlns="http://www.sila-standard.org">
+  <Identifier>CashboxService</Identifier>
+  <DisplayName>Cashbox Service</DisplayName>
+  <Description />
+  <DataTypeDefinition>
+    <Identifier>CashboxButton</Identifier>
+    <DisplayName>Cashbox Button</DisplayName>
+    <Description />
+    <DataType>
+      <Constrained>
+        <DataType>
+          <Basic>String</Basic>
+        </DataType>
+        <Constraints>
+          <Set>
+            <Value>StartNewSale</Value>
+            <Value>FinishSale</Value>
+            <Value>PayWithCash</Value>
+            <Value>PayWithCard</Value>
+            <Value>DisableExpressMode</Value>
+          </Set>
+        </Constraints>
+      </Constrained>
+    </DataType>
+  </DataTypeDefinition>
+  <Command>
+    <Identifier>ListenToCashdeskButtons</Identifier>
+    <DisplayName>Listen To Cashdesk Buttons</DisplayName>
+    <Description />
+    <Observable>Yes</Observable>
+    <IntermediateResponse>
+      <Identifier>Intermediate</Identifier>
+      <DisplayName>Intermediate</DisplayName>
+      <Description />
+      <DataType>
+        <DataTypeIdentifier>CashboxButton</DataTypeIdentifier>
+      </DataType>
+    </IntermediateResponse>
+  </Command>
+</Feature>

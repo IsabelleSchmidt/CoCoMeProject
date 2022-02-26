@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SiLA2Version="1.0" FeatureVersion="1.0" Originator="cocome.terminal" Category="contracts" xmlns="http://www.sila-standard.org">
+  <Identifier>BarcodeScannerService</Identifier>
+  <DisplayName>Barcode Scanner Service</DisplayName>
+  <Description />
+  <Command>
+    <Identifier>ListenToBarcodes</Identifier>
+    <DisplayName>Listen To Barcodes</DisplayName>
+    <Description />
+    <Observable>Yes</Observable>
+    <IntermediateResponse>
+      <Identifier>Intermediate</Identifier>
+      <DisplayName>Intermediate</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </IntermediateResponse>
+  </Command>
+</Feature>

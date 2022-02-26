@@ -1,0 +1,75 @@
+﻿@page
+@model StoreServer.Pages.Orders.IndexModel
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1>Bestellungen</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Submitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Received)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].RecieveDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Order) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Submitted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Received)
+            </td>
+            <td>
+                    @if (item.Submitted) 
+                    {
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    }
+                </td>
+            <td>
+                @if (item.Received) 
+                    {
+                        @Html.DisplayFor(modelItem => item.RecieveDate)
+                    }
+                
+            </td>
+            <td>
+                @if (!item.Received) 
+                {
+                    <a class="edit" asp-page="./Edit" asp-route-id="@item.ID">Annehmen</a> <span>|</span>
+                }
+                @if(item.Submitted)
+                {
+                     <a class="details" asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                }else
+                {
+                    <a asp-page="./Create">Details</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a class="newOrder" asp-page="Create">Neue Bestellung</a>
+</p>

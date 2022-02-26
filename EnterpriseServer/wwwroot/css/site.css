@@ -1,0 +1,125 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Enterprise ID Button and Text Container Style*/
+
+.text-center {
+    margin-top: 50px;
+}
+
+/*Hier Gestaltung für Tabelle*/
+table, th, td {
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+    border-collapse: collapse;
+    background-color: #FF82AB;
+    border-color: #FFC0CB;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+/*Button style ab hier*/
+a.btn {
+    appearance: button;
+    background-color: #FF82AB;
+    margin-top: 20px;
+}
+
+/*button.reportbtn {
+    border-radius: 5px;
+    box-shadow: none;
+    color: #000;
+    background-color: #FF82AB;
+    margin-top: 20px;
+    border-style: none;
+    padding-left: 30px;
+    padding-right: 30px;
+}*/
+
+.enterprise-id {
+    border-radius: 5px;
+    border-style: none;
+}
+/*Button style bis hier*/
+/* Provide sufficient contrast against white background */
+a {
+    color: #000;
+}
+
+.btn-primary {
+    color: #FF82AB;
+    background-color: #FF82AB;
+    border-color: #FF82AB;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #FF82AB;
+    background-color: #FF82AB;
+    border-color: #FF82AB;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+    border-top: 1px solid #FF82AB;
+}
+/*.border-bottom {
+    border-bottom: 1px solid #FF82AB;
+}*/
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.bg-white {
+    background-color: #FF82AB !important;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #FFC0CB;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #FF82AB;
+}
+
+.container {
+    color: #000;
+}

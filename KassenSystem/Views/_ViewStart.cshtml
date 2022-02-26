@@ -1,0 +1,13 @@
+﻿@{
+    var controller = ViewContext.RouteData.Values["Controller"].ToString();
+    if(controller == "CashRegisterSystem")
+    {
+        Layout = "_SystemLayout";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+    
+    
+}

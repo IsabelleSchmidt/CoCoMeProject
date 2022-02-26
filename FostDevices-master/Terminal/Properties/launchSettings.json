@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Terminal": {
+      "commandName": "Project",
+      "commandLineArgs": "-i 127.0.0.1 -p 50052"
+    }
+  }
+}

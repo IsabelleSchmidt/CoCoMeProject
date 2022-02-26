@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SiLA2Version="1.0" FeatureVersion="1.0" Originator="com.mybank" Category="banking" xmlns="http://www.sila-standard.org">
+  <Identifier>BankServer</Identifier>
+  <DisplayName>Bank Server</DisplayName>
+  <Description />
+  <DataTypeDefinition>
+    <Identifier>TransactionContext</Identifier>
+    <DisplayName>Transaction Context</DisplayName>
+    <Description />
+    <DataType>
+      <Structure>
+        <Element>
+          <Identifier>ContextId</Identifier>
+          <DisplayName>ContextId</DisplayName>
+          <Description />
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>Challenge</Identifier>
+          <DisplayName>Challenge</DisplayName>
+          <Description />
+          <DataType>
+            <Basic>Binary</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>Amount</Identifier>
+          <DisplayName>Amount</DisplayName>
+          <Description />
+          <DataType>
+            <Constrained>
+              <DataType>
+                <Basic>Integer</Basic>
+              </DataType>
+              <Constraints>
+                <Unit>
+                  <Label>€</Label>
+                  <Factor>0.01</Factor>
+                  <Offset>0</Offset>
+                  <UnitComponent>
+                    <SIUnit>Mole</SIUnit>
+                    <Exponent>1</Exponent>
+                  </UnitComponent>
+                </Unit>
+              </Constraints>
+            </Constrained>
+          </DataType>
+        </Element>
+      </Structure>
+    </DataType>
+  </DataTypeDefinition>
+  <Command>
+    <Identifier>CreateContext</Identifier>
+    <DisplayName>Create Context</DisplayName>
+    <Description />
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>Amount</Identifier>
+      <DisplayName>Amount</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>Integer</Basic>
+      </DataType>
+    </Parameter>
+    <Response>
+      <Identifier>ReturnValue</Identifier>
+      <DisplayName>Return Value</DisplayName>
+      <Description />
+      <DataType>
+        <DataTypeIdentifier>TransactionContext</DataTypeIdentifier>
+      </DataType>
+    </Response>
+  </Command>
+  <Command>
+    <Identifier>AuthorizePayment</Identifier>
+    <DisplayName>Authorize Payment</DisplayName>
+    <Description />
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>TransactionContextId</Identifier>
+      <DisplayName>Transaction Context Id</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+    <Parameter>
+      <Identifier>Account</Identifier>
+      <DisplayName>Account</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+    <Parameter>
+      <Identifier>AuthorizationToken</Identifier>
+      <DisplayName>Authorization Token</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+  </Command>
+</Feature>

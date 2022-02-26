@@ -1,0 +1,338 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #128254;
+    color: #000;
+}
+
+/*General CSS*/
+.text-center {
+
+}
+
+h1.display-4 {
+    color: #fff;
+}
+.container {
+    color: #fff;
+}
+
+/*Inventar Index*/
+
+table, th, td {
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+    border-collapse: collapse;
+    background-color: #083724;
+    border-color: #128254;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    color: #fff;
+}
+
+a.btn {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+    a.btn:hover {
+        color: #128254;
+    }
+
+    a.btn:visited {
+        color: #fff;
+    }
+
+a.del {
+    color: #fff;
+    text-align: center;
+}
+
+    a.del:hover {
+        color: #128254;
+    }
+
+    a.del:visited {
+        color: #fff;
+    }
+
+a.edit {
+    color: #fff;
+    text-align: center;
+}
+
+    a.edit:hover {
+        color: #128254;
+    }
+
+    a.edit:visited {
+        color: #fff;
+    }
+
+a.privacy {
+    color: #fff;
+}
+
+    a.privacy:hover {
+        color: #128254;
+    }
+
+    a.privacy:visited {
+        color: #fff;
+    }
+
+p.lowstock {
+    color: #efb7b5;
+    background-color: #c03029;
+}
+
+td.low:empty {
+    background-color: #fff;
+    border-radius: 0px;
+}
+
+td.low {
+    background-color: #c03029;
+    border-radius: 0px;
+}
+
+td.normal {
+    background-color: #083724;
+    border-radius: 0px;
+}
+
+/*Order Page Index*/
+
+a.newOrder {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+a.newOrder:hover {
+    color: #128254;
+}
+
+a.details {
+    color: #fff;
+    text-align: center;
+}
+
+    a.details:hover {
+        color: #128254;
+    }
+
+    a.details:visited {
+        color: #fff;
+    }
+
+
+/*Known / All Items Index */
+
+a.create {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+    a.create:hover {
+        color: #128254;
+    }
+
+
+/*Inventory Edit Page*/
+
+label {
+    color:#fff;
+}
+
+.form-control {
+    background-color: #083724;
+    color: #fff;
+    border-radius: 5px;
+    border-style: none;
+}
+
+    .form-control:active {
+        border-color: #fff;
+        box-shadow: none;
+    }
+
+.back {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 50px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+    a.back:hover {
+        color: #128254;
+    }
+
+.btn-primary {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-color: #083724;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+    .btn-primary:hover {
+        background-color: #083724;
+        color: #128254;
+        border-color: #083724;
+    }
+
+/* Inventory Delete Page*/
+
+h3, h4{
+    color: #fff;
+}
+
+.col-sm-2 {
+    color: #fff;
+}
+
+.col-sm-10 {
+    color: #fff;
+}
+
+.btn-danger {
+    appearance: button;
+    background-color: #c03029;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-color: #c03029;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+
+/*Order create Page*/
+
+.p-4 {
+    background-color: #128254;
+    color: #fff;
+    border-radius: 20px;
+    border-width: 0px;
+}
+
+.col-md-6 {
+    background-color: #128254;
+}
+
+a.add {
+    color: #fff;
+    text-align: center;
+}
+
+    a.add:hover {
+        color: #128254;
+    }
+
+
+/*Order Details Page*/
+
+a.accept {
+    appearance: button;
+    background-color: #083724;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-color: #083724;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+}
+
+    .accept:hover {
+        background-color: #083724;
+        color: #128254;
+        border-color: #083724;
+    }
+}
+
+
+/*Footer*/
+.footer {
+    background-color: #083724;
+    color: #fff;
+    border-color: #083724;
+}
+
+.container {
+    color: #000;
+}
+
+.container2 {
+    color: #fff;
+    margin-left: 90px;
+}
+
+h1 {
+    color: #fff;
+}
+
+.header {
+    background-color: #128254;
+    color: #000;
+    border-color: #128254;
+}
+
+/* Welcome Page*/
+.mainindex-body {
+    background-color: #128254;
+    color: #000;
+}
+
+.index-text {
+    background-color: #128254;
+    color: #fff;
+    margin-left: 250px;
+    margin-right: 250px;
+    text-align: center;
+    align-content:center;
+}

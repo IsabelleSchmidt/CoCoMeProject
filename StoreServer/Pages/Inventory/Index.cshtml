@@ -1,0 +1,86 @@
+﻿@page
+@model StoreServer.Pages.Inventory.IndexModel
+
+@{
+    ViewData["Title"] = "Inventory";
+}
+
+<h1>Inventar</h1>
+
+@*<p>
+    <a asp-page="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryItem[0].ItemIdentifier.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryItem[0].Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryItem[0].Price)
+            </th>
+            <th>
+                Infos
+            </th>
+            <th></th>
+            @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.Count == 0) != null )
+            {
+              <th></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.InventoryItem) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemIdentifier.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+                @if (item.Count < 10 || item.Price == 0)
+                {
+                    <td class="low">
+                        @if (item.Price == 0)
+                        {
+                            <p style="color:red">Preis festlegen!</p>
+                        } else
+                        {
+                            <p class="lowstock">Low in Stock!</p>
+                        }
+                    </td>
+                }else
+                {
+                    <td class="normal">
+                        <p></p>
+                    </td>
+                }   
+            <td>
+                <a class="edit" asp-page="./Edit" asp-route-id="@item.ID">Preis ändern</a>
+            </td>
+            @if (Model.InventoryItem.ToList().Find(inventoryItem => inventoryItem.Count == 0) != null )
+            {
+                @if (item.Count == 0)
+                {
+                    <td>
+                        <a class="del" asp-page="./Delete" asp-route-id="@item.ID">Entfernen</a>
+                    </td>
+                } else
+                {
+                    <td></td>  
+                }
+                }
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+        <a class="btn" asp-page-handler="CreateReport">PDF erstellen</a>
+</div>

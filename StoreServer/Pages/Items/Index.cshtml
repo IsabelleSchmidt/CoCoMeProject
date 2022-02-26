@@ -1,0 +1,35 @@
+﻿@page
+@model StoreServer.Pages.Items.IndexModel
+
+@{
+    ViewData["Title"] = "Known Items";
+}
+
+<h1>Bekannte Produkte</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemIdentifier[0].Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ItemIdentifier) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a class="edit" asp-page="./Edit" asp-route-id="@item.ID">Umbenennen</a> |
+                <a class="del" asp-page="./Delete" asp-route-id="@item.ID">Löschen</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a class="create" asp-page="Create">Neues Produkt hinzufügen</a>
+</p>

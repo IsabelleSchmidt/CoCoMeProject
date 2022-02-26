@@ -1,0 +1,61 @@
+﻿@page "{id}"
+@model StoreServer.Pages.Orders.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Bestellung annehmen</h1>
+
+<h4>Bestellung</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Order.ID)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Order.ID)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Order.OrderDate)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Order.OrderDate)
+    </dd>
+</dl>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Count
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderItem) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemIdentifier.Name)
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input asp-for="@item.Count" class="form-control" style="width:100px" readonly/>
+                        <span asp-validation-for="OrderItem.Count" class="text-danger"></span>
+                    </div>                                
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="accept" asp-route-orderId=@Model.Order.ID asp-page-handler="AcceptOrder">Annehmen</a> |
+    <a class="back" asp-page="./Index">Zurück</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

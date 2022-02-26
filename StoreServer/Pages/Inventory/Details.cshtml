@@ -1,0 +1,31 @@
+﻿@page
+@model StoreServer.Pages.Inventory.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>InventoryItem</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventoryItem.Count)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventoryItem.Count)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InventoryItem.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InventoryItem.Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.InventoryItem.ID">Edit</a> |
+    <a class="back" asp-page="./Index">Zurück</a>
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SiLA2Version="1.0" FeatureVersion="1.0" Originator="cocome.terminal" Category="contracts" xmlns="http://www.sila-standard.org">
+  <Identifier>DisplayController</Identifier>
+  <DisplayName>Display Controller</DisplayName>
+  <Description />
+  <Command>
+    <Identifier>SetDisplayText</Identifier>
+    <DisplayName>Set Display Text</DisplayName>
+    <Description />
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>DisplayText</Identifier>
+      <DisplayName>Display Text</DisplayName>
+      <Description />
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+  </Command>
+</Feature>
