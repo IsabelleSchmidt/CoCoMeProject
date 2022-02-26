@@ -12,10 +12,30 @@
    #navigation  a:hover {
      color: rgba(80,100,120,1);
    }
+   .give-room {
+       padding: 20px;
+   }
     
   </style>
-</head><div id="navigation">
-  <h1>Navigation</h1>
+</head
+><div id="navigation">
+    
+  <div class="row">
+
+
+    <div class="col"><app-customer-display></app-customer-display></div>
+    <div class="col"><app-scanner></app-scanner></div>
+    <div class="col"><app-cash-register></app-cash-register></div>
+  </div>
+  <div class="row">
+    <div class="col"><app-lightdisplay></app-lightdisplay></div>
+    <div class="col"><app-cashbox></app-cashbox></div>
+    <div class="col"><app-cardreader></app-cardreader></div>
+
+
+
+  </div>
+  <!--
   <div class="container">
     <div class="row d-flex justify-content-center">
       <a class="navbar-brand col-xs-1" [routerLink]="['/customer-display']" routerLinkActive="active"
@@ -47,5 +67,5 @@
          [routerLinkActiveOptions]="{exact: true}">Express Light</a>
     </div>
   </div>
-
-  </div>
+    -->
+</div>

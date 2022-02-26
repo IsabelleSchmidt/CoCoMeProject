@@ -7,6 +7,5 @@ export class Item {
     this.id = 0;
     this.name = "";
     this.price = 0;
-    this.amount = 0;
   }
 }

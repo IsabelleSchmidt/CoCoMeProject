@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KassenSystem.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CashBoxController : Controller
     {
         // GET: /<controller>/

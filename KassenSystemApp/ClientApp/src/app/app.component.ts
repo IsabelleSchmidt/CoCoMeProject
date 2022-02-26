@@ -9,7 +9,7 @@ import * as myGlobal from './global'; //<==== this one (**Updated**)
 })
 export class AppComponent {
   title = 'CoCoMe Cash Register';
-  constructor(public service: RegisterService) { }
+  constructor() { }
   
   ngOnInit(): void {
    

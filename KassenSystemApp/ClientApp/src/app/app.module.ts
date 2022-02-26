@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injector, ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,13 @@ import { CashRegisterComponent } from './item/cash-register/cash-register.compon
 import { ScannerComponent } from './item/scanner/scanner.component';
 import { CashboxComponent } from './item/cashbox/cashbox.component';
 import { LightdisplayComponent } from './item/lightdisplay/lightdisplay.component';
+import { ItemService } from './shared/item.service';
+import { SaleService } from './shared/sale.service';
+import { CheckoutItemService } from './shared/checkout-item.service';
+import { CardreaderComponent } from './item/cardreader/cardreader.component';
+
+
+export let AppInjector: Injector;
 
 @NgModule({
   declarations: [
@@ -25,7 +32,8 @@ import { LightdisplayComponent } from './item/lightdisplay/lightdisplay.componen
     CashRegisterComponent,
     ScannerComponent,
     CashboxComponent,
-    LightdisplayComponent
+    LightdisplayComponent,
+    CardreaderComponent
   ],
   imports: [
     FormsModule,
@@ -33,7 +41,9 @@ import { LightdisplayComponent } from './item/lightdisplay/lightdisplay.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ItemService, SaleService, CheckoutItemService, ItemService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+}

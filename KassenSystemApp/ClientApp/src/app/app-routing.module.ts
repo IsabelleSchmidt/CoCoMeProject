@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerDisplayComponent } from "././item/customer-display/customer-display.component"
+import { CardreaderComponent } from './item/cardreader/cardreader.component';
 import { CashRegisterComponent } from './item/cash-register/cash-register.component';
 import { CashboxComponent } from './item/cashbox/cashbox.component';
 import { LightdisplayComponent } from './item/lightdisplay/lightdisplay.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'printer', component: PrinterComponent },
   { path: 'lightdisplay', component: LightdisplayComponent },
   { path: 'scanner', component: ScannerComponent },
-  { path: 'cashbox', component: CashboxComponent }
+  { path: 'cashbox', component: CashboxComponent },
+  { path: 'cardreader', component: CardreaderComponent }
 ];
 
 @NgModule({

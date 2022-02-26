@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CashRegisterService } from '../../shared/cash-register.service';
 import { CheckoutItem } from '../../shared/checkout-item.model';
+import { PaymentMethod } from '../../shared/sale.model';
+import { SaleService } from '../../shared/sale.service';
+
+import { CheckoutItemService } from '../../shared/checkout-item.service';
+import { ItemService } from '../../shared/item.service';
+import { StoreServerService } from '../../shared/store-server.service';
+import { AppInjector } from '../../app.module';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cash-register',
@@ -10,14 +17,24 @@ import { CheckoutItem } from '../../shared/checkout-item.model';
 })
 export class CashRegisterComponent implements OnInit {
 
-  constructor(public service: CashRegisterService) { }
-  isExpress: boolean = false;
-  sum: number = 0;
+  constructor(public saleService: SaleService, public checkoutService: CheckoutItemService, public itemService: ItemService, public storeService: StoreServerService) { }
+ 
+  sumSubscription: Subscription;
+  sumTotal = 0;
+  expressSubsription: Subscription;
+  express: boolean = false;
+  cItemSubsription: Subscription;
+  checkoutItems: CheckoutItem[] = [];
+
+  cashboxSubscription: Subscription;
+  openCashbox: boolean = false;
+  cardSubscription: Subscription;
+  awaitCard: boolean = false;
+
 
   receiveId: boolean = false;
   receivePayment: boolean = false;
   inputText: string = "";
-  items: CheckoutItem[] = [];
 
   fieldInputDisabled: boolean =true;
   endInputDisabled: boolean =true;
@@ -33,58 +50,104 @@ export class CashRegisterComponent implements OnInit {
   keyInputDisabled: boolean =true;
 
 
+  init(any: boolean) {
+    if (any) {
+      this.onNewSale();
+    } else {
+      this.expressInputDisabled = !this.express;
+      this.newInputDisabled = false;
+      this.saleService.deleteExpiredSales();
+      this.inputText = "";
+    }
+  }
+  
   ngOnInit(): void {
-    this.expressInputDisabled = false;//check if in express mode
-    this.newInputDisabled = false;//check if middle of sale
-    this.service.deleteExpiredSales();
-    this.inputText = "";
+    this.checkoutService.getAllItems();
+    this.saleService.getExpress();
+    this.sumSubscription = this.checkoutService.sum.subscribe(message => this.sumTotal = message);
+    this.expressSubsription = this.saleService.isExpress.subscribe(ex => this.express = ex);
+    this.cItemSubsription = this.checkoutService.checkoutItemsTest.subscribe(list => this.checkoutItems = list);
+    this.cashboxSubscription = this.saleService.openCash.subscribe(oc => this.openCashbox = oc);
+    this.cardSubscription = this.saleService.awaitCard.subscribe(ac => this.awaitCard = ac);
+
+    this.checkoutService.getList().subscribe(list => this.init(list.length > 0));
+
+    
+
   }
   onNewSale(): void {
-    console.log("newSale");
-    this.itemplusInputDisabled =false;
-    this.payInputDisabled =false;
-    this.itemidInputDisabled =false;
-    this.deleteInputDisabled =false;
-    this.newInputDisabled =true;
-    this.expressInputDisabled =true;
-    this.service.getAllItems()
-      .subscribe(items => this.items = items);
+    this.storeService.getAllItems().subscribe(i => this.itemService.setAllItems(i));
+    this.payInputDisabled = false;
+    this.itemplusInputDisabled = false;
+    this.itemidInputDisabled = false;
+    this.deleteInputDisabled = false;
+    this.newInputDisabled = true;
+    this.expressInputDisabled = true;
   }
   onPay(): void {
-    //service check if express, get sum
-    this.service.getExpress().subscribe(expr => this.isExpress = expr);
-    if (!this.isExpress) {
-
-      this.cardInputDisabled = false;
+    if (this.checkoutItems.length > 0) {
+      this.itemplusInputDisabled = true;
+      this.payInputDisabled = true;
+      this.itemidInputDisabled = true;
+      this.deleteInputDisabled = true;
+      this.cashInputDisabled = false
+      if (!this.express) {
+        this.cardInputDisabled = false;
+      }
     }
-    this.itemplusInputDisabled =true;
-    this.payInputDisabled =true;
-    this.itemidInputDisabled =true;
-    this.deleteInputDisabled =true;
-    this.cashInputDisabled =false
+    
   }
   onItemPlus(): void {
-    //service plus one if not empty
-    this.service.itemPlusOne();
+    //service plus one
+    if (this.express) {
+      var i = 0;
+      this.checkoutItems.forEach(coi => i += coi.amount);
+      if (i < 8) {
+        this.checkoutService.itemPlusOne();
+      }
+    } else {
+      this.checkoutService.itemPlusOne();
+    }
   }
   onDelete(): void {
-    //service delete if not empty
-    this.service.deleteLast();
+    //service delete 
+    if (this.checkoutItems.length > 0)
+    {
+
+    this.checkoutService.deleteLast();
+
+    }
   }
   onItemId(): void {
-    this.itemidInputDisabled =true;
-    this.keyInputDisabled =false;
-    this.okInputDisabled =false;
-    this.receiveId =true;
-    this.itemplusInputDisabled =true;
-    this.payInputDisabled =true;
-    this.itemidInputDisabled =true;
-    this.deleteInputDisabled =true;
+    if (this.saleService.isExpress) {
+      var i = 0;
+      this.checkoutItems.forEach(coi => i += coi.amount);
+      if (i < 8) {
+        this.itemidInputDisabled = true;
+        this.keyInputDisabled = false;
+        this.okInputDisabled = false;
+        this.receiveId = true;
+        this.itemplusInputDisabled = true;
+        this.payInputDisabled = true;
+        this.itemidInputDisabled = true;
+        this.deleteInputDisabled = true;
+      }
+    } else {
+      this.itemidInputDisabled = true;
+      this.keyInputDisabled = false;
+      this.okInputDisabled = false;
+      this.receiveId = true;
+      this.itemplusInputDisabled = true;
+      this.payInputDisabled = true;
+      this.itemidInputDisabled = true;
+      this.deleteInputDisabled = true;
+    }
   }
   onOk(): void {
     if (this.receiveId) {
       //service add item if id ok
-      this.service.addById(+this.inputText);
+      this.checkoutService.addById(+this.inputText);
+      
       this.receiveId = false;
       this.itemplusInputDisabled = false;
       this.payInputDisabled = false;
@@ -94,31 +157,30 @@ export class CashRegisterComponent implements OnInit {
       this.okInputDisabled = true;
       this.inputText = "";
     } else if (this.receivePayment && (this.inputText !== "")) {
-      //calc input > sum
-      this.service.getSum().subscribe(s => this.sum = s);
-      this.service.getSum().subscribe(i => console.log(i + ": " + this.inputText) );
-      if (this.service.getSum().subscribe(i => i < (+this.inputText*100) ) ){
-        this.receivePayment = false;
-        this.endInputDisabled = false;
+       if (this.checkoutService.sumTotal < (+this.inputText)) {
+          this.receivePayment = false;
+          this.endInputDisabled = false;
 
-        this.keyInputDisabled = true;
-        this.okInputDisabled = true;
-        //calculate cash back from input - sum
-        this.service.getSum().subscribe(i => this.inputText = String((+this.inputText) - (i/100)));
+          this.keyInputDisabled = true;
+          this.okInputDisabled = true;
+         //calculate cash back from input - sum
+         console.log("SUMME: "+this.sumTotal);
+         this.inputText = String((+this.inputText) - (this.sumTotal));
+         this.saleService.closeCashbox(false);
+         this.cashboxSubscription = this.saleService.openCash.subscribe(oc => this.endInputDisabled = oc);
       }
-      
     }
-   
-    
   }
+
+  
   onCard(): void {
     this.cardInputDisabled =true;
     this.cashInputDisabled = true;
     this.endInputDisabled = false;
     //activate card service somehow
-    if (!this.isExpress) {
-      //cardservice
-    }
+
+    this.saleService.acceptCard(false);
+    this.cardSubscription = this.saleService.awaitCard.subscribe(ac => this.endInputDisabled = ac);
   }
 
   onCash(): void {
@@ -127,15 +189,17 @@ export class CashRegisterComponent implements OnInit {
     this.cardInputDisabled =true;
     this.okInputDisabled =false;
     this.keyInputDisabled =false;
-    //activate cashbox somehow
+    
   }
   onEnd(): void {
 
     //service clear list, send list to store, check express
-    //this.service.finishSale();
-    this.service.clear();
-    this.service.deleteExpiredSales();
-    this.expressInputDisabled =false;
+    this.storeService.removeItemsStore(this.checkoutItems);
+    this.checkoutService.clear();
+    this.saleService.getExpress();
+    this.saleService.deleteExpiredSales();
+
+
     this.newInputDisabled = false;
     this.cashInputDisabled = true;
     this.cardInputDisabled = true;
@@ -153,15 +217,10 @@ export class CashRegisterComponent implements OnInit {
     }
   }
   onExpress(): void {
-    this.expressInputDisabled =true;
+    this.expressInputDisabled = true;
+    this.saleService.stopExpress();
     //service end express (dont forgest list length and card/cash)
   }
 
-  getCashBack(): string {
-    //service get sum
-    var y: number = +this.inputText;
-    console.log(y);
-    //return y-(sum/100);
-    return "";
-  }
+  
 }

@@ -14,9 +14,9 @@ namespace KassenSystem.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public int PriceSingle { get; set; }
+        public Decimal PriceSingle { get; set; }
         [Required]
-        public int PriceFull { get; set; }
+        public Decimal PriceFull { get; set; }
         [Required]
         public int Amount { get; set; }
 

@@ -10,18 +10,12 @@
       .express-light h1 {
         align-self: center;
       }
-      .express-light-off {
-        background-color: black;
-      }
-
-    .express-light-on {
-      
-      background-color: rgba(50,160,100,1);
-    }
+     
+    
   </style>
 </head>
 <div class="d-flex justify-content-center">
-  <div class="express-light-on d-flex justify-content-center express-light">
+  <div class="express-light-on d-flex justify-content-center express-light" [style.background]="express ? 'green': 'black'">
     <h1>Express</h1>
   </div>
   </div>

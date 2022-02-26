@@ -5,8 +5,10 @@ namespace KassenSystem.Models
 {
     public enum PayWay
     {
-        Card, Cash
+        Card=0, Cash=1
+
     }
+   
     public class Sale
     {
         [Key]

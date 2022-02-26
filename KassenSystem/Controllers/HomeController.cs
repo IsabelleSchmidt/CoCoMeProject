@@ -7,7 +7,7 @@ using KassenSystem.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+// Idea for registration for single Cash-Register-Frontend-Systems
 
 namespace KassenSystem.Controllers
 {

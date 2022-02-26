@@ -24,9 +24,7 @@
         <th>
           Preis
         </th>
-        <th>
-          Menge
-        </th>
+       
 
         <th></th>
       </tr>
@@ -35,16 +33,14 @@
     <tbody>
       <tr *ngFor="let row of items">
 
-        <td *ngIf="row.amount>0">
+        <td>
           {{row.name}}
         </td>
-        <td *ngIf="row.amount>0">
-          {{(row.price)/100 | currency:'EUR'}}
+        <td>
+          {{(row.price) | currency:'EUR'}}
         </td>
-        <td *ngIf="row.amount>0">
-          {{row.amount}}
-        </td>
-        <td *ngIf="row.amount>0"><button class="add-button" type="button" (click)="onSelectItem(row)">Hinzufügen</button></td>
+        
+        <td><button class="add-button" type="button" (click)="onSelectItem(row)">Hinzufügen</button></td>
 
 
       </tr>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { CheckoutItem } from '../../shared/checkout-item.model';
 import { CheckoutItemService } from '../../shared/checkout-item.service';
 
@@ -11,18 +11,22 @@ import { CheckoutItemService } from '../../shared/checkout-item.service';
 })
 export class CustomerDisplayComponent implements OnInit {
   
-  items: CheckoutItem[] = [];
-  itemSum: number = 0;
+  sumSubscription: Subscription;
+  itemSubsription: Subscription;
+  sumTotal = 0;
+  checkoutItems: CheckoutItem[] = [];
   constructor(public service: CheckoutItemService) { }
 
   ngOnInit(): void {
-      this.getItems();
+    this.sumSubscription = this.service.sum.subscribe(message => this.sumTotal = message);
+    this.itemSubsription = this.service.checkoutItemsTest.subscribe(list => this.checkoutItems = list);
+
+    this.getItems();
       
     }
   getItems(): void {
-    this.service.getAllItems()
-      .subscribe(items => this.items = items);
-    this.service.getSum().subscribe(sum => this.itemSum = sum);
+    this.service.getAllItems();
+    this.service.getSum();
   }
   
 }

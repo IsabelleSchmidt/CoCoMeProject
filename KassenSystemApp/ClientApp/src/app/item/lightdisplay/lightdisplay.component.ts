@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SaleService } from '../../shared/sale.service';
 
 @Component({
   selector: 'app-lightdisplay',
@@ -7,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class LightdisplayComponent implements OnInit {
-
-  constructor() { }
+  expressSubsription: Subscription;
+  express: boolean = false;
+  constructor(public saleService: SaleService) { }
 
   ngOnInit(): void {
+    this.expressSubsription = this.saleService.isExpress.subscribe(ex => this.express = ex);
   }
 
 }
