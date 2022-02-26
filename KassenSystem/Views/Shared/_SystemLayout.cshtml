@@ -63,23 +63,25 @@
                                      
                 <div class="container cashbox-keys">
                     <div class="row">
-                      <button class="col cash-box-button" id="new-sale" >Neuer Kassiervorgang</button>
-                      <button class="col cash-box-button" id="sale-finished" disabled>Zur Bezahlung</button>
+                      <a class="col cash-box-button" id="new-sale" asp-controller="CashRegisterSystem" asp-action="GetItemsListener">Neuer Kassiervorgang</a>
+                      <a class="col cash-box-button" id="sale-finished" disabled>Zur Bezahlung</a>
                     </div>   
                     <div class="row"> 
-                      <button class="col cash-box-button" id="card-payment" disabled>Kartenzahlung</button>
-                      <button class="col cash-box-button" id="cash-payment" disabled>Bargeldzahlung</button>
+                      <a class="col cash-box-button" id="card-payment" disabled>Kartenzahlung</a>
+                      <a class="col cash-box-button" id="cash-payment" disabled>Bargeldzahlung</a>
                     </div>
                     <div class="row"> 
-                      <button class="col cash-box-button" id="item-by-id" disabled>Objekt-Id eingeben</button>
-                      <button class="col cash-box-button" id="item-plus-one" asp-controller="CashRegisterSystem" asp-action="CurrentItemPlusOne" disabled>Objekt + 1</button>
+                      <a class="col cash-box-button" id="item-by-id" disabled>Objekt-Id eingeben</a>
+                      <a class="col cash-box-button" id="item-plus-one" asp-controller="Item" asp-action="LastPlusOne" disabled>Objekt + 1</a>
                                      
                     </div>           
                     <div class="row"> 
-                      <button class="col cash-box-button" id="delete-current-item" asp-controller="CashRegisterSystem" asp-action="DeleteCurrentItem" disabled>Objekt Löschen</button>
-                      <button class="col cash-box-button" id="stop-express-checkout" >Expresskasse beenden</button>
-                    </div>           
-                                     
+                      <a class="col cash-box-button" id="delete-current-item" asp-controller="Item" asp-action="DeleteLast" disabled>Objekt Löschen</a>
+                      <a class="col cash-box-button" id="stop-express-checkout" >Expresskasse beenden</a>
+                    </div>          
+                    <div class="row"> 
+                        <a class="col cash-box-button" id="clear" asp-controller="Item" asp-action="EndSale">Beenden</a> 
+                    </div>
                  </div>    
                
             </div>

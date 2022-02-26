@@ -10,6 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
+builder.Services.AddCors(option =>
+            {
+    option.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -57,7 +64,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseCors();
 app.UseAuthorization();
 
 app.MapControllers();
@@ -80,7 +87,7 @@ app.UseEndpoints(endpoints =>
     {
         List<InventoryItem> inventoryItems = await context.InventoryItem.Include(item => item.ItemIdentifier).ToListAsync();
         List<ReturnedItem> returnedItem = new List<ReturnedItem>();
-        inventoryItems.ForEach(inventoryItem => returnedItem.Add(new ReturnedItem(inventoryItem.ID, inventoryItem.ItemIdentifier.Name, inventoryItem.Count)));
+        inventoryItems.ForEach(inventoryItem => returnedItem.Add(new ReturnedItem(inventoryItem.ID, inventoryItem.ItemIdentifier.Name, inventoryItem.Price)));
         return returnedItem;
     });
 });
@@ -89,7 +96,10 @@ app.MapGet("/api/removeitems/{id}/{removeCount}", async (int id, int removeCount
 {
     if (await context.InventoryItem.FindAsync(id) is InventoryItem inventoryItem)
     {
-        if (inventoryItem.Count - removeCount < 0) 
+        if (inventoryItem.Count - removeCount < 10) {
+            
+        }
+            if (inventoryItem.Count - removeCount < 0) 
         {
             inventoryItem.Count = 0;
             context.InventoryItem.Update(inventoryItem);

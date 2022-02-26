@@ -1,0 +1,51 @@
+<div class="text-center">
+  <h1 class="display-4">Produkte</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Preis einzeln
+        </th>
+        <th>
+          Menge
+        </th>
+        <th>
+          Preis insgesamt
+        </th>
+
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody >
+      <tr *ngFor="let row of checkoutItems ">
+
+        <td *ngIf="row.amount>0">
+          {{row.name}}
+        </td>
+        <td *ngIf="row.amount>0">
+          {{(row.priceSingle) | currency:'EUR'}}
+        </td>
+
+        <td *ngIf="row.amount>0">
+          {{row.amount}}
+        </td>
+        <td *ngIf="row.amount>0">
+          {{(row.priceFull) | currency:'EUR'}}
+        </td>
+       
+
+      </tr>
+
+    </tbody>
+    <tbody><tr>
+      <td>Summe:</td>
+      <td>{{(sumTotal) | currency:'EUR'}}</td>
+
+      </tr></tbody>
+  </table>
+
+</div>

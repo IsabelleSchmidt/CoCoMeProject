@@ -4,12 +4,12 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Count { get; set; }
-        public ReturnedItem(int id, string name, int count)
+        public decimal Price { get; set; }
+        public ReturnedItem(int id, string name, decimal price)
         {
             Id = id;
             Name = name;
-            Count = count;
+            Price = price;
         }
     }
 }

@@ -1,8 +1,50 @@
 ﻿@{
     ViewData["Title"] = "Cash Register";
 }
-
+@model IEnumerable<KassenSystem.Models.CheckoutItem>
 <div class="text-center">
     <h1 class="display-4">Willkommen</h1>
     <p>Um einen neuen Kassiervorgang zu starten, wählen Sie "Neu"</p>
+     <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PriceSingle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PriceFull)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.Raw(String.Format("{0}", (float)(item.PriceSingle)/100))
+                    </td>
+                     <td>
+                       @Html.Raw(String.Format("{0}", (float)(item.PriceFull)/100))
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h3>Summe: @ViewData["PriceSum"]€</h3>
 </div>
