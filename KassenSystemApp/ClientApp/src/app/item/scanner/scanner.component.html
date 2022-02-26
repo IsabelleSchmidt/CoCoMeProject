@@ -40,7 +40,7 @@
           {{(row.price) | currency:'EUR'}}
         </td>
         
-        <td><button class="add-button" type="button" (click)="onSelectItem(row)">Hinzufügen</button></td>
+        <td><button [disabled]="!scan" class="add-button" type="button" (click)="onSelectItem(row)">Hinzufügen</button></td>
 
 
       </tr>

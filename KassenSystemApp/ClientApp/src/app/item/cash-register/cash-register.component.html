@@ -99,7 +99,7 @@
           <button [disabled]="deleteInputDisabled" class="col cash-box-button" id="delete-current-item"  (click)="onDelete()">
             Objekt Löschen
           </button>
-          <button [disabled]="expressInputDisabled" class="col cash-box-button" id="stop-express-checkout" (click)="onExpress()">Expresskasse beenden</button>
+          <button [disabled]="!express" class="col cash-box-button" id="stop-express-checkout" (click)="onExpress()">Expresskasse beenden</button>
         </div>
         <div class="row">
           <button [disabled]="endInputDisabled" class="col cash-box-button" id="clear"  (click)="onEnd()">Beenden</button>

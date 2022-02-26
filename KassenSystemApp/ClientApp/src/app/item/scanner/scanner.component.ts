@@ -29,10 +29,15 @@ export class ScannerComponent implements OnInit {
   cItemSubsription: Subscription;
   checkoutItems: CheckoutItem[] = [];
 
+  scanSubsription: Subscription;
+  scan: boolean = false;
+
+
   ngOnInit(): void {
     this.getItems();
     this.itemSubsription = this.service.items.subscribe(list => this.items = list);
     this.expressSubsription = this.saleservice.isExpress.subscribe(ex => this.express = ex);
+    this.scanSubsription = this.saleservice.scanInput.subscribe(sIn => this.scan = sIn);
     this.cItemSubsription = this.checkoutservice.checkoutItemsTest.subscribe(list => this.checkoutItems = list);
   }
   getItems(): void {

@@ -38,7 +38,6 @@ export class CashRegisterComponent implements OnInit {
 
   fieldInputDisabled: boolean =true;
   endInputDisabled: boolean =true;
-  expressInputDisabled: boolean =true;
   cashInputDisabled: boolean =true;
   cardInputDisabled: boolean =true;
   payInputDisabled: boolean =true;
@@ -54,7 +53,6 @@ export class CashRegisterComponent implements OnInit {
     if (any) {
       this.onNewSale();
     } else {
-      this.expressInputDisabled = !this.express;
       this.newInputDisabled = false;
       this.saleService.deleteExpiredSales();
       this.inputText = "";
@@ -77,15 +75,17 @@ export class CashRegisterComponent implements OnInit {
   }
   onNewSale(): void {
     this.storeService.getAllItems().subscribe(i => this.itemService.setAllItems(i));
+    this.saleService.startSale();
     this.payInputDisabled = false;
     this.itemplusInputDisabled = false;
     this.itemidInputDisabled = false;
     this.deleteInputDisabled = false;
     this.newInputDisabled = true;
-    this.expressInputDisabled = true;
   }
   onPay(): void {
     if (this.checkoutItems.length > 0) {
+
+      this.saleService.toPayment();
       this.itemplusInputDisabled = true;
       this.payInputDisabled = true;
       this.itemidInputDisabled = true;
@@ -157,14 +157,13 @@ export class CashRegisterComponent implements OnInit {
       this.okInputDisabled = true;
       this.inputText = "";
     } else if (this.receivePayment && (this.inputText !== "")) {
-       if (this.checkoutService.sumTotal < (+this.inputText)) {
+       if (this.sumTotal < (+this.inputText)) {
           this.receivePayment = false;
           this.endInputDisabled = false;
 
           this.keyInputDisabled = true;
           this.okInputDisabled = true;
          //calculate cash back from input - sum
-         console.log("SUMME: "+this.sumTotal);
          this.inputText = String((+this.inputText) - (this.sumTotal));
          this.saleService.closeCashbox(false);
          this.cashboxSubscription = this.saleService.openCash.subscribe(oc => this.endInputDisabled = oc);
@@ -217,7 +216,6 @@ export class CashRegisterComponent implements OnInit {
     }
   }
   onExpress(): void {
-    this.expressInputDisabled = true;
     this.saleService.stopExpress();
     //service end express (dont forgest list length and card/cash)
   }

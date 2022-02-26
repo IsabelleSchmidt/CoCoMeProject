@@ -21,6 +21,9 @@ export class SaleService {
   public openC = new BehaviorSubject(false);
   public openCash = this.openC.asObservable();
 
+  public scanIn = new BehaviorSubject(false);
+  public scanInput = this.scanIn.asObservable();
+
  
 
   private log(message: string) {
@@ -37,9 +40,8 @@ export class SaleService {
     };
   }
   
-  
+
   addSale(pm: boolean) {
-    console.log("pay " + pm);
     if (pm) {
       return this.httpBase.get(this.endpointSale+"/add/1").subscribe();
     }
@@ -70,5 +72,11 @@ export class SaleService {
   acceptCard(result: boolean) {
     if (result) this.addSale(false);
     this.awaitC.next(!result);
+  }
+  toPayment(): void {
+    this.scanIn.next(false);
+  }
+  startSale(): void {
+    this.scanIn.next(true);
   }
  }
